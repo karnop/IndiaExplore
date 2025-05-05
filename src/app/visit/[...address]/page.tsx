@@ -1,19 +1,19 @@
-import prisma from '@/lib/prisma'
+import prisma  from '@/lib/prisma'
 import { notFound } from 'next/navigation'
-import { Carousel } from '@nextui-org/react'
-import ItineraryForm from '@/components/ItineraryForm'
-import TransportSection from '@/components/TransportSection'
+import Itenraryform from "@/components/itenraryform"
+import TransportSection from "@/components/transportsection";
+import { Key } from 'react';
 
 interface PageProps {
     params: { address: string[] }
 }
 
-export default async function VisitPage({ params }: PageProps) {
+export default async function VisitPage({params}: PageProps) {
     const addressPath = params.address.join('/')
     const location = await prisma.location.findUnique({
-        where: { address: addressPath },
+        where: {address: addressPath},
         include: {
-            bannerImages: true,
+            BannerImages: true,
         }
     })
     if (!location) return notFound()
@@ -27,21 +27,39 @@ export default async function VisitPage({ params }: PageProps) {
                 </a>
             </div>
 
-            {/* Banner Carousel */}
-            {location.bannerImages?.length > 0 && (
-                <Carousel autoplay loop>
-                    {location.bannerImages.map(img => (
-                        <Carousel.Item key={img.id}>
-                            <img src={img.url} alt={location.name} className="w-full h-64 object-cover" />
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
+            {/* Banner Carousel (Custom JavaScript Version) */}
+            {location.BannerImages?.length > 0 && (
+                <div className="relative overflow-hidden">
+                    <div className="carousel w-full relative">
+                        {location.BannerImages.map((img: {
+                            id: Key | null | undefined;
+                            url: string | Blob | undefined;
+                        }, index: number) => (
+                            <div key={img.id} className={`carousel-item w-full ${index === 0 ? 'block' : 'hidden'}`}>
+                                <img src={img.url} alt={location.name} className="w-full h-64 object-cover" />
+                            </div>
+                        ))}
+                    </div>
+                    <script dangerouslySetInnerHTML={{ __html: `
+            (function() {
+              const items = document.querySelectorAll('.carousel-item');
+              let current = 0;
+              setInterval(() => {
+                items[current].classList.remove('block');
+                items[current].classList.add('hidden');
+                current = (current + 1) % items.length;
+                items[current].classList.remove('hidden');
+                items[current].classList.add('block');
+              }, 3000);
+            })();
+          ` }} />
+                </div>
             )}
 
             {/* Itinerary Section */}
             <section>
                 <h2 className="text-2xl font-semibold mb-4">Create Your Itinerary</h2>
-                <ItineraryForm address={addressPath} />
+                <Itenraryform address={params.address} />
             </section>
 
             {/* Booking Section */}
@@ -51,7 +69,7 @@ export default async function VisitPage({ params }: PageProps) {
             </section>
 
             {/* Transport Options */}
-            <TransportSection address={addressPath} />
+            <TransportSection address={params.address}  />
 
             {/* Eats & Stays */}
             <section>

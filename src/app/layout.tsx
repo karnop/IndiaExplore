@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Link from "next/link";
+import { Varela_Round } from 'next/font/google'
+const varela = Varela_Round({
+    subsets : ["latin"],
+    weight : "400"
+})
+import {Providers} from "@/app/providers";
+import NavBar from "@/components/navBar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,20 +20,16 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en">
-      <body>
-      <header className="p-4 shadow">
-          <Link href="/">IndiaTour</Link>
-          <form action="/search" method="get" className="inline-block ml-4">
-              <input
-                  name="q"
-                  placeholder="Search places..."
-                  className="border px-2"
-              />
-              <button type="submit">Search</button>
-          </form>
-      </header>
-      <main className="p-4">{children}</main>
-      </body>
+          <body className="p-2 bg-slate-50">
+          <Providers>
+              <div className="fixed top-0 w-full h-[10vh] ">
+                  <NavBar/>
+
+              </div>
+          <main className={`p-4 ${varela.className} mt-[9vh]`}>{children}</main>
+          </Providers>
+
+          </body>
       </html>
   );
 }

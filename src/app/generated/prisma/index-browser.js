@@ -113,6 +113,12 @@ Prisma.NullTypes = {
  * Enums
  */
 
+exports.Prisma.BannerImageScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  locationId: 'locationId'
+};
+
 exports.Prisma.LocationScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -139,6 +145,7 @@ exports.LocationType = exports.$Enums.LocationType = {
 };
 
 exports.Prisma.ModelName = {
+  BannerImage: 'BannerImage',
   Location: 'Location'
 };
 

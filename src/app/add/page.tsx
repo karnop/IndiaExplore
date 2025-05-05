@@ -67,6 +67,7 @@ export default function AddLocationPage() {
                 )}
 
                 <textarea placeholder="Description (optional)" value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} className="w-full border px-3 py-2" />
+
                 <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add Location</button>
                 {message && <p className="text-sm mt-2 text-green-700">{message}</p>}
             </form>

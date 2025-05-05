@@ -20,6 +20,13 @@ enum LocationType {
   PLACE
 }
 
+model BannerImage {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  url        String
+  location   Location @relation(fields: [locationId], references: [id])
+  locationId String   @db.ObjectId
+}
+
 model Location {
   id          String       @id @default(auto()) @map("_id") @db.ObjectId
   name        String
@@ -31,5 +38,6 @@ model Location {
   children    Location[]   @relation("Hierarchy")
 
   // Computed full path for routing, e.g. "state-slug/city-slug/place-slug"
-  address String @unique
+  address      String        @unique
+  BannerImages BannerImage[]
 }
