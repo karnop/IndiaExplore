@@ -9,7 +9,11 @@ const config = {
         "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"
     ],
     theme: {
-        extend: {},
+        extend: {
+            backgroundImage: {
+                'custom-bg-image': "url('/step1texting.jpg')",
+            }
+        },
     },
     darkMode: "class",
     plugins: [heroui()]

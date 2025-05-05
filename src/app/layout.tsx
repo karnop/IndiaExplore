@@ -7,6 +7,7 @@ const varela = Varela_Round({
 })
 import {Providers} from "@/app/providers";
 import NavBar from "@/components/navBar";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,15 +21,16 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en">
-          <body className="p-2 bg-slate-50">
+          <body className=" bg-slate-50">
           <Providers>
-              <div className="fixed top-0 w-full h-[10vh] ">
+              <div className="bg-slate-50 fixed z-50  top-0 w-full h-[10vh] ">
                   <NavBar/>
-
               </div>
-          <main className={`p-4 ${varela.className} mt-[9vh]`}>{children}</main>
+          <main className={`z-20 p-4 ${varela.className} mt-[9vh]`}>{children}</main>
+              <div className=" w-full ">
+                  <Footer/>
+              </div>
           </Providers>
-
           </body>
       </html>
   );
