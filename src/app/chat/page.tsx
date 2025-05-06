@@ -1,9 +1,7 @@
 "use client"
-import React, {useEffect} from 'react';
 import { useSession } from "next-auth/react"
-import {signIn} from "@/auth";
-import {Button} from "@heroui/button";
 import Unauthenticateaccess from "@/components/unauthenticateaccess";
+import Chatbot from "@/components/chatbot";
 
 function Page() {
     const { data: session, status } = useSession();
@@ -13,6 +11,11 @@ function Page() {
             {status == "unauthenticated" &&
                 <Unauthenticateaccess />
             }
+
+            {status == "authenticated" &&
+                <Chatbot  userId={session!.user!.id!} />
+            }
+
         </div>
     );
 }

@@ -10,8 +10,8 @@ async function NavBar() {
     return (
         <div className={" flex justify-between items-center w-full md:max-w-4xl md:mx-auto py-4 px-4 gap-2"}>
             <Link href={"/"} className="font-bold text-2xl flex">
-                Indi <span className={"flex items-center w-5"}><Tent/></span> pl<span
-                className={"flex items-center w-5"}><ShipWheel/></span>re
+                C <span className={"flex items-center w-5"}><ShipWheel/></span> onversi<span
+                className={"flex items-center w-5"}><Tent/></span>
             </Link>
 
             <div className="flex gap-2">

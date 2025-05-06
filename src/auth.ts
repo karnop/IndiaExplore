@@ -7,34 +7,34 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [Google],
     secret : process.env.AUTH_SECRET,
     callbacks: {
-        // 1️. At sign-in (first jwt call), pull onboarding from DB into the token
+        // 1. At sign-in (first jwt call), pull the user's ID from the DB into the token
         async jwt({ token, user }) {
             if (user) {
                 const dbUser = await prisma.user.findUnique({
                     where: { email: user.email! },
-                    select: { onboarding: true },
+                    select: { id: true },
                 })
-                token.onboarding = dbUser?.onboarding ?? false
+                if (dbUser) token.id = dbUser.id;
             }
             return token
         },
-        // 2. Expose onboarding on the client session object
+        // 2. Expose the user ID on the client session object
         async session({ session, token }) {
             session.user = {
                 ...session.user!,
-                onboarding: token.onboarding,
-            }
-            return session
+                id: token.id as number,
+            };
+            return session;
         },
-        // 3 Your existing signIn hook that upserts the user...
+        // 3. Upsert the user on sign-in
         async signIn({ user }) {
-            const exists = await prisma.user.findUnique({ where: { email: user.email! } })
+            const exists = await prisma.user.findUnique({ where: { email: user.email! } });
             if (!exists) {
                 await prisma.user.create({
                     data: { email: user.email!, image: user.image },
-                })
+                });
             }
-            return true
+            return true;
         },
     },
 })

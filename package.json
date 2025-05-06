@@ -11,6 +11,7 @@
   "dependencies": {
     "@heroui/react": "^2.7.8",
     "@prisma/client": "^6.7.0",
+    "cohere-ai": "^7.17.1",
     "framer-motion": "^12.9.4",
     "lucide-react": "^0.507.0",
     "next": "15.3.1",

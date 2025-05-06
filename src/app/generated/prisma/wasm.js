@@ -124,6 +124,13 @@ exports.Prisma.UserScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.DailyMessageCountScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  date: 'date',
+  count: 'count'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -140,7 +147,8 @@ exports.UserType = exports.$Enums.UserType = {
 };
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  DailyMessageCount: 'DailyMessageCount'
 };
 
 /**
