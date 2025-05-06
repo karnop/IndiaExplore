@@ -8,6 +8,7 @@ const varela = Varela_Round({
 import {Providers} from "@/app/providers";
 import NavBar from "@/components/navBar";
 import Footer from "@/components/footer";
+import {SessionProvider} from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,18 +21,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="en">
-          <body className=" bg-slate-50">
+      <SessionProvider>
+          <html lang="en">
+          <body className={` bg-slate-50 ${varela.className}`}>
           <Providers>
               <div className="bg-slate-50 fixed z-50  top-0 w-full h-[10vh] ">
                   <NavBar/>
               </div>
-          <main className={`z-20 p-4 ${varela.className} mt-[9vh]`}>{children}</main>
+              <main className={`z-20 p-4 mt-[9vh]`}>{children}</main>
               <div className=" w-full ">
                   <Footer/>
               </div>
           </Providers>
           </body>
-      </html>
+          </html>
+      </SessionProvider>
   );
 }

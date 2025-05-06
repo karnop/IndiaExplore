@@ -113,20 +113,15 @@ Prisma.NullTypes = {
  * Enums
  */
 
-exports.Prisma.BannerImageScalarFieldEnum = {
-  id: 'id',
-  url: 'url',
-  locationId: 'locationId'
-};
-
-exports.Prisma.LocationScalarFieldEnum = {
+exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  slug: 'slug',
-  type: 'type',
-  description: 'description',
-  parentId: 'parentId',
-  address: 'address'
+  email: 'email',
+  image: 'image',
+  role: 'role',
+  onboarding: 'onboarding',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -138,15 +133,14 @@ exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
-exports.LocationType = exports.$Enums.LocationType = {
-  STATE: 'STATE',
-  CITY: 'CITY',
-  PLACE: 'PLACE'
+exports.UserType = exports.$Enums.UserType = {
+  CLIENT: 'CLIENT',
+  ADMIN: 'ADMIN',
+  ADVOCATE: 'ADVOCATE'
 };
 
 exports.Prisma.ModelName = {
-  BannerImage: 'BannerImage',
-  Location: 'Location'
+  User: 'User'
 };
 
 /**

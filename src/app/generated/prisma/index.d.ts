@@ -14,33 +14,28 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model BannerImage
+ * Model User
  * 
  */
-export type BannerImage = $Result.DefaultSelection<Prisma.$BannerImagePayload>
-/**
- * Model Location
- * 
- */
-export type Location = $Result.DefaultSelection<Prisma.$LocationPayload>
+export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 
 /**
  * Enums
  */
 export namespace $Enums {
-  export const LocationType: {
-  STATE: 'STATE',
-  CITY: 'CITY',
-  PLACE: 'PLACE'
+  export const UserType: {
+  CLIENT: 'CLIENT',
+  ADMIN: 'ADMIN',
+  ADVOCATE: 'ADVOCATE'
 };
 
-export type LocationType = (typeof LocationType)[keyof typeof LocationType]
+export type UserType = (typeof UserType)[keyof typeof UserType]
 
 }
 
-export type LocationType = $Enums.LocationType
+export type UserType = $Enums.UserType
 
-export const LocationType: typeof $Enums.LocationType
+export const UserType: typeof $Enums.UserType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -49,8 +44,8 @@ export const LocationType: typeof $Enums.LocationType
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more BannerImages
- * const bannerImages = await prisma.bannerImage.findMany()
+ * // Fetch zero or more Users
+ * const users = await prisma.user.findMany()
  * ```
  *
  *
@@ -70,8 +65,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more BannerImages
-   * const bannerImages = await prisma.bannerImage.findMany()
+   * // Fetch zero or more Users
+   * const users = await prisma.user.findMany()
    * ```
    *
    *
@@ -135,24 +130,14 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.bannerImage`: Exposes CRUD operations for the **BannerImage** model.
+   * `prisma.user`: Exposes CRUD operations for the **User** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more BannerImages
-    * const bannerImages = await prisma.bannerImage.findMany()
+    * // Fetch zero or more Users
+    * const users = await prisma.user.findMany()
     * ```
     */
-  get bannerImage(): Prisma.BannerImageDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.location`: Exposes CRUD operations for the **Location** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Locations
-    * const locations = await prisma.location.findMany()
-    * ```
-    */
-  get location(): Prisma.LocationDelegate<ExtArgs, ClientOptions>;
+  get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -593,8 +578,7 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    BannerImage: 'BannerImage',
-    Location: 'Location'
+    User: 'User'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -613,155 +597,81 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "bannerImage" | "location"
+      modelProps: "user"
       txIsolationLevel: never
     }
     model: {
-      BannerImage: {
-        payload: Prisma.$BannerImagePayload<ExtArgs>
-        fields: Prisma.BannerImageFieldRefs
+      User: {
+        payload: Prisma.$UserPayload<ExtArgs>
+        fields: Prisma.UserFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.BannerImageFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BannerImagePayload> | null
+            args: Prisma.UserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.BannerImageFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BannerImagePayload>
+            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           findFirst: {
-            args: Prisma.BannerImageFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BannerImagePayload> | null
+            args: Prisma.UserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.BannerImageFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BannerImagePayload>
+            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           findMany: {
-            args: Prisma.BannerImageFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BannerImagePayload>[]
+            args: Prisma.UserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
           }
           create: {
-            args: Prisma.BannerImageCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BannerImagePayload>
+            args: Prisma.UserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           createMany: {
-            args: Prisma.BannerImageCreateManyArgs<ExtArgs>
+            args: Prisma.UserCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.BannerImageDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BannerImagePayload>
+            args: Prisma.UserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           update: {
-            args: Prisma.BannerImageUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BannerImagePayload>
+            args: Prisma.UserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           deleteMany: {
-            args: Prisma.BannerImageDeleteManyArgs<ExtArgs>
+            args: Prisma.UserDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.BannerImageUpdateManyArgs<ExtArgs>
+            args: Prisma.UserUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.BannerImageUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BannerImagePayload>
+            args: Prisma.UserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           aggregate: {
-            args: Prisma.BannerImageAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateBannerImage>
+            args: Prisma.UserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUser>
           }
           groupBy: {
-            args: Prisma.BannerImageGroupByArgs<ExtArgs>
-            result: $Utils.Optional<BannerImageGroupByOutputType>[]
+            args: Prisma.UserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserGroupByOutputType>[]
           }
           findRaw: {
-            args: Prisma.BannerImageFindRawArgs<ExtArgs>
+            args: Prisma.UserFindRawArgs<ExtArgs>
             result: JsonObject
           }
           aggregateRaw: {
-            args: Prisma.BannerImageAggregateRawArgs<ExtArgs>
+            args: Prisma.UserAggregateRawArgs<ExtArgs>
             result: JsonObject
           }
           count: {
-            args: Prisma.BannerImageCountArgs<ExtArgs>
-            result: $Utils.Optional<BannerImageCountAggregateOutputType> | number
-          }
-        }
-      }
-      Location: {
-        payload: Prisma.$LocationPayload<ExtArgs>
-        fields: Prisma.LocationFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.LocationFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocationPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.LocationFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocationPayload>
-          }
-          findFirst: {
-            args: Prisma.LocationFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocationPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.LocationFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocationPayload>
-          }
-          findMany: {
-            args: Prisma.LocationFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocationPayload>[]
-          }
-          create: {
-            args: Prisma.LocationCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocationPayload>
-          }
-          createMany: {
-            args: Prisma.LocationCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.LocationDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocationPayload>
-          }
-          update: {
-            args: Prisma.LocationUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocationPayload>
-          }
-          deleteMany: {
-            args: Prisma.LocationDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.LocationUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.LocationUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocationPayload>
-          }
-          aggregate: {
-            args: Prisma.LocationAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateLocation>
-          }
-          groupBy: {
-            args: Prisma.LocationGroupByArgs<ExtArgs>
-            result: $Utils.Optional<LocationGroupByOutputType>[]
-          }
-          findRaw: {
-            args: Prisma.LocationFindRawArgs<ExtArgs>
-            result: JsonObject
-          }
-          aggregateRaw: {
-            args: Prisma.LocationAggregateRawArgs<ExtArgs>
-            result: JsonObject
-          }
-          count: {
-            args: Prisma.LocationCountArgs<ExtArgs>
-            result: $Utils.Optional<LocationCountAggregateOutputType> | number
+            args: Prisma.UserCountArgs<ExtArgs>
+            result: $Utils.Optional<UserCountAggregateOutputType> | number
           }
         }
       }
@@ -836,8 +746,7 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    bannerImage?: BannerImageOmit
-    location?: LocationOmit
+    user?: UserOmit
   }
 
   /* Types for Logging */
@@ -927,1365 +836,365 @@ export namespace Prisma {
    */
 
 
-  /**
-   * Count Type LocationCountOutputType
-   */
-
-  export type LocationCountOutputType = {
-    children: number
-    BannerImages: number
-  }
-
-  export type LocationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    children?: boolean | LocationCountOutputTypeCountChildrenArgs
-    BannerImages?: boolean | LocationCountOutputTypeCountBannerImagesArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * LocationCountOutputType without action
-   */
-  export type LocationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the LocationCountOutputType
-     */
-    select?: LocationCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * LocationCountOutputType without action
-   */
-  export type LocationCountOutputTypeCountChildrenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LocationWhereInput
-  }
-
-  /**
-   * LocationCountOutputType without action
-   */
-  export type LocationCountOutputTypeCountBannerImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BannerImageWhereInput
-  }
-
 
   /**
    * Models
    */
 
   /**
-   * Model BannerImage
+   * Model User
    */
 
-  export type AggregateBannerImage = {
-    _count: BannerImageCountAggregateOutputType | null
-    _min: BannerImageMinAggregateOutputType | null
-    _max: BannerImageMaxAggregateOutputType | null
+  export type AggregateUser = {
+    _count: UserCountAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
   }
 
-  export type BannerImageMinAggregateOutputType = {
-    id: string | null
-    url: string | null
-    locationId: string | null
-  }
-
-  export type BannerImageMaxAggregateOutputType = {
-    id: string | null
-    url: string | null
-    locationId: string | null
-  }
-
-  export type BannerImageCountAggregateOutputType = {
-    id: number
-    url: number
-    locationId: number
-    _all: number
-  }
-
-
-  export type BannerImageMinAggregateInputType = {
-    id?: true
-    url?: true
-    locationId?: true
-  }
-
-  export type BannerImageMaxAggregateInputType = {
-    id?: true
-    url?: true
-    locationId?: true
-  }
-
-  export type BannerImageCountAggregateInputType = {
-    id?: true
-    url?: true
-    locationId?: true
-    _all?: true
-  }
-
-  export type BannerImageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which BannerImage to aggregate.
-     */
-    where?: BannerImageWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of BannerImages to fetch.
-     */
-    orderBy?: BannerImageOrderByWithRelationInput | BannerImageOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: BannerImageWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` BannerImages from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` BannerImages.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned BannerImages
-    **/
-    _count?: true | BannerImageCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: BannerImageMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: BannerImageMaxAggregateInputType
-  }
-
-  export type GetBannerImageAggregateType<T extends BannerImageAggregateArgs> = {
-        [P in keyof T & keyof AggregateBannerImage]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateBannerImage[P]>
-      : GetScalarType<T[P], AggregateBannerImage[P]>
-  }
-
-
-
-
-  export type BannerImageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BannerImageWhereInput
-    orderBy?: BannerImageOrderByWithAggregationInput | BannerImageOrderByWithAggregationInput[]
-    by: BannerImageScalarFieldEnum[] | BannerImageScalarFieldEnum
-    having?: BannerImageScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: BannerImageCountAggregateInputType | true
-    _min?: BannerImageMinAggregateInputType
-    _max?: BannerImageMaxAggregateInputType
-  }
-
-  export type BannerImageGroupByOutputType = {
-    id: string
-    url: string
-    locationId: string
-    _count: BannerImageCountAggregateOutputType | null
-    _min: BannerImageMinAggregateOutputType | null
-    _max: BannerImageMaxAggregateOutputType | null
-  }
-
-  type GetBannerImageGroupByPayload<T extends BannerImageGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<BannerImageGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof BannerImageGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], BannerImageGroupByOutputType[P]>
-            : GetScalarType<T[P], BannerImageGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type BannerImageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    url?: boolean
-    locationId?: boolean
-    location?: boolean | LocationDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["bannerImage"]>
-
-
-
-  export type BannerImageSelectScalar = {
-    id?: boolean
-    url?: boolean
-    locationId?: boolean
-  }
-
-  export type BannerImageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "locationId", ExtArgs["result"]["bannerImage"]>
-  export type BannerImageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    location?: boolean | LocationDefaultArgs<ExtArgs>
-  }
-
-  export type $BannerImagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "BannerImage"
-    objects: {
-      location: Prisma.$LocationPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      url: string
-      locationId: string
-    }, ExtArgs["result"]["bannerImage"]>
-    composites: {}
-  }
-
-  type BannerImageGetPayload<S extends boolean | null | undefined | BannerImageDefaultArgs> = $Result.GetResult<Prisma.$BannerImagePayload, S>
-
-  type BannerImageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<BannerImageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: BannerImageCountAggregateInputType | true
-    }
-
-  export interface BannerImageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BannerImage'], meta: { name: 'BannerImage' } }
-    /**
-     * Find zero or one BannerImage that matches the filter.
-     * @param {BannerImageFindUniqueArgs} args - Arguments to find a BannerImage
-     * @example
-     * // Get one BannerImage
-     * const bannerImage = await prisma.bannerImage.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends BannerImageFindUniqueArgs>(args: SelectSubset<T, BannerImageFindUniqueArgs<ExtArgs>>): Prisma__BannerImageClient<$Result.GetResult<Prisma.$BannerImagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one BannerImage that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {BannerImageFindUniqueOrThrowArgs} args - Arguments to find a BannerImage
-     * @example
-     * // Get one BannerImage
-     * const bannerImage = await prisma.bannerImage.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends BannerImageFindUniqueOrThrowArgs>(args: SelectSubset<T, BannerImageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BannerImageClient<$Result.GetResult<Prisma.$BannerImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first BannerImage that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BannerImageFindFirstArgs} args - Arguments to find a BannerImage
-     * @example
-     * // Get one BannerImage
-     * const bannerImage = await prisma.bannerImage.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends BannerImageFindFirstArgs>(args?: SelectSubset<T, BannerImageFindFirstArgs<ExtArgs>>): Prisma__BannerImageClient<$Result.GetResult<Prisma.$BannerImagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first BannerImage that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BannerImageFindFirstOrThrowArgs} args - Arguments to find a BannerImage
-     * @example
-     * // Get one BannerImage
-     * const bannerImage = await prisma.bannerImage.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends BannerImageFindFirstOrThrowArgs>(args?: SelectSubset<T, BannerImageFindFirstOrThrowArgs<ExtArgs>>): Prisma__BannerImageClient<$Result.GetResult<Prisma.$BannerImagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more BannerImages that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BannerImageFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all BannerImages
-     * const bannerImages = await prisma.bannerImage.findMany()
-     * 
-     * // Get first 10 BannerImages
-     * const bannerImages = await prisma.bannerImage.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const bannerImageWithIdOnly = await prisma.bannerImage.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends BannerImageFindManyArgs>(args?: SelectSubset<T, BannerImageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BannerImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a BannerImage.
-     * @param {BannerImageCreateArgs} args - Arguments to create a BannerImage.
-     * @example
-     * // Create one BannerImage
-     * const BannerImage = await prisma.bannerImage.create({
-     *   data: {
-     *     // ... data to create a BannerImage
-     *   }
-     * })
-     * 
-     */
-    create<T extends BannerImageCreateArgs>(args: SelectSubset<T, BannerImageCreateArgs<ExtArgs>>): Prisma__BannerImageClient<$Result.GetResult<Prisma.$BannerImagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many BannerImages.
-     * @param {BannerImageCreateManyArgs} args - Arguments to create many BannerImages.
-     * @example
-     * // Create many BannerImages
-     * const bannerImage = await prisma.bannerImage.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends BannerImageCreateManyArgs>(args?: SelectSubset<T, BannerImageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a BannerImage.
-     * @param {BannerImageDeleteArgs} args - Arguments to delete one BannerImage.
-     * @example
-     * // Delete one BannerImage
-     * const BannerImage = await prisma.bannerImage.delete({
-     *   where: {
-     *     // ... filter to delete one BannerImage
-     *   }
-     * })
-     * 
-     */
-    delete<T extends BannerImageDeleteArgs>(args: SelectSubset<T, BannerImageDeleteArgs<ExtArgs>>): Prisma__BannerImageClient<$Result.GetResult<Prisma.$BannerImagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one BannerImage.
-     * @param {BannerImageUpdateArgs} args - Arguments to update one BannerImage.
-     * @example
-     * // Update one BannerImage
-     * const bannerImage = await prisma.bannerImage.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends BannerImageUpdateArgs>(args: SelectSubset<T, BannerImageUpdateArgs<ExtArgs>>): Prisma__BannerImageClient<$Result.GetResult<Prisma.$BannerImagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more BannerImages.
-     * @param {BannerImageDeleteManyArgs} args - Arguments to filter BannerImages to delete.
-     * @example
-     * // Delete a few BannerImages
-     * const { count } = await prisma.bannerImage.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends BannerImageDeleteManyArgs>(args?: SelectSubset<T, BannerImageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more BannerImages.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BannerImageUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many BannerImages
-     * const bannerImage = await prisma.bannerImage.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends BannerImageUpdateManyArgs>(args: SelectSubset<T, BannerImageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one BannerImage.
-     * @param {BannerImageUpsertArgs} args - Arguments to update or create a BannerImage.
-     * @example
-     * // Update or create a BannerImage
-     * const bannerImage = await prisma.bannerImage.upsert({
-     *   create: {
-     *     // ... data to create a BannerImage
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the BannerImage we want to update
-     *   }
-     * })
-     */
-    upsert<T extends BannerImageUpsertArgs>(args: SelectSubset<T, BannerImageUpsertArgs<ExtArgs>>): Prisma__BannerImageClient<$Result.GetResult<Prisma.$BannerImagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more BannerImages that matches the filter.
-     * @param {BannerImageFindRawArgs} args - Select which filters you would like to apply.
-     * @example
-     * const bannerImage = await prisma.bannerImage.findRaw({
-     *   filter: { age: { $gt: 25 } }
-     * })
-     */
-    findRaw(args?: BannerImageFindRawArgs): Prisma.PrismaPromise<JsonObject>
-
-    /**
-     * Perform aggregation operations on a BannerImage.
-     * @param {BannerImageAggregateRawArgs} args - Select which aggregations you would like to apply.
-     * @example
-     * const bannerImage = await prisma.bannerImage.aggregateRaw({
-     *   pipeline: [
-     *     { $match: { status: "registered" } },
-     *     { $group: { _id: "$country", total: { $sum: 1 } } }
-     *   ]
-     * })
-     */
-    aggregateRaw(args?: BannerImageAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
-
-
-    /**
-     * Count the number of BannerImages.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BannerImageCountArgs} args - Arguments to filter BannerImages to count.
-     * @example
-     * // Count the number of BannerImages
-     * const count = await prisma.bannerImage.count({
-     *   where: {
-     *     // ... the filter for the BannerImages we want to count
-     *   }
-     * })
-    **/
-    count<T extends BannerImageCountArgs>(
-      args?: Subset<T, BannerImageCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], BannerImageCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a BannerImage.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BannerImageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends BannerImageAggregateArgs>(args: Subset<T, BannerImageAggregateArgs>): Prisma.PrismaPromise<GetBannerImageAggregateType<T>>
-
-    /**
-     * Group by BannerImage.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {BannerImageGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends BannerImageGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: BannerImageGroupByArgs['orderBy'] }
-        : { orderBy?: BannerImageGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, BannerImageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBannerImageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the BannerImage model
-   */
-  readonly fields: BannerImageFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for BannerImage.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__BannerImageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    location<T extends LocationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocationDefaultArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the BannerImage model
-   */
-  interface BannerImageFieldRefs {
-    readonly id: FieldRef<"BannerImage", 'String'>
-    readonly url: FieldRef<"BannerImage", 'String'>
-    readonly locationId: FieldRef<"BannerImage", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * BannerImage findUnique
-   */
-  export type BannerImageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BannerImage
-     */
-    select?: BannerImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BannerImage
-     */
-    omit?: BannerImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BannerImageInclude<ExtArgs> | null
-    /**
-     * Filter, which BannerImage to fetch.
-     */
-    where: BannerImageWhereUniqueInput
-  }
-
-  /**
-   * BannerImage findUniqueOrThrow
-   */
-  export type BannerImageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BannerImage
-     */
-    select?: BannerImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BannerImage
-     */
-    omit?: BannerImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BannerImageInclude<ExtArgs> | null
-    /**
-     * Filter, which BannerImage to fetch.
-     */
-    where: BannerImageWhereUniqueInput
-  }
-
-  /**
-   * BannerImage findFirst
-   */
-  export type BannerImageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BannerImage
-     */
-    select?: BannerImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BannerImage
-     */
-    omit?: BannerImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BannerImageInclude<ExtArgs> | null
-    /**
-     * Filter, which BannerImage to fetch.
-     */
-    where?: BannerImageWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of BannerImages to fetch.
-     */
-    orderBy?: BannerImageOrderByWithRelationInput | BannerImageOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for BannerImages.
-     */
-    cursor?: BannerImageWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` BannerImages from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` BannerImages.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of BannerImages.
-     */
-    distinct?: BannerImageScalarFieldEnum | BannerImageScalarFieldEnum[]
-  }
-
-  /**
-   * BannerImage findFirstOrThrow
-   */
-  export type BannerImageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BannerImage
-     */
-    select?: BannerImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BannerImage
-     */
-    omit?: BannerImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BannerImageInclude<ExtArgs> | null
-    /**
-     * Filter, which BannerImage to fetch.
-     */
-    where?: BannerImageWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of BannerImages to fetch.
-     */
-    orderBy?: BannerImageOrderByWithRelationInput | BannerImageOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for BannerImages.
-     */
-    cursor?: BannerImageWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` BannerImages from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` BannerImages.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of BannerImages.
-     */
-    distinct?: BannerImageScalarFieldEnum | BannerImageScalarFieldEnum[]
-  }
-
-  /**
-   * BannerImage findMany
-   */
-  export type BannerImageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BannerImage
-     */
-    select?: BannerImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BannerImage
-     */
-    omit?: BannerImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BannerImageInclude<ExtArgs> | null
-    /**
-     * Filter, which BannerImages to fetch.
-     */
-    where?: BannerImageWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of BannerImages to fetch.
-     */
-    orderBy?: BannerImageOrderByWithRelationInput | BannerImageOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing BannerImages.
-     */
-    cursor?: BannerImageWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` BannerImages from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` BannerImages.
-     */
-    skip?: number
-    distinct?: BannerImageScalarFieldEnum | BannerImageScalarFieldEnum[]
-  }
-
-  /**
-   * BannerImage create
-   */
-  export type BannerImageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BannerImage
-     */
-    select?: BannerImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BannerImage
-     */
-    omit?: BannerImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BannerImageInclude<ExtArgs> | null
-    /**
-     * The data needed to create a BannerImage.
-     */
-    data: XOR<BannerImageCreateInput, BannerImageUncheckedCreateInput>
-  }
-
-  /**
-   * BannerImage createMany
-   */
-  export type BannerImageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many BannerImages.
-     */
-    data: BannerImageCreateManyInput | BannerImageCreateManyInput[]
-  }
-
-  /**
-   * BannerImage update
-   */
-  export type BannerImageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BannerImage
-     */
-    select?: BannerImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BannerImage
-     */
-    omit?: BannerImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BannerImageInclude<ExtArgs> | null
-    /**
-     * The data needed to update a BannerImage.
-     */
-    data: XOR<BannerImageUpdateInput, BannerImageUncheckedUpdateInput>
-    /**
-     * Choose, which BannerImage to update.
-     */
-    where: BannerImageWhereUniqueInput
-  }
-
-  /**
-   * BannerImage updateMany
-   */
-  export type BannerImageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update BannerImages.
-     */
-    data: XOR<BannerImageUpdateManyMutationInput, BannerImageUncheckedUpdateManyInput>
-    /**
-     * Filter which BannerImages to update
-     */
-    where?: BannerImageWhereInput
-    /**
-     * Limit how many BannerImages to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * BannerImage upsert
-   */
-  export type BannerImageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BannerImage
-     */
-    select?: BannerImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BannerImage
-     */
-    omit?: BannerImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BannerImageInclude<ExtArgs> | null
-    /**
-     * The filter to search for the BannerImage to update in case it exists.
-     */
-    where: BannerImageWhereUniqueInput
-    /**
-     * In case the BannerImage found by the `where` argument doesn't exist, create a new BannerImage with this data.
-     */
-    create: XOR<BannerImageCreateInput, BannerImageUncheckedCreateInput>
-    /**
-     * In case the BannerImage was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<BannerImageUpdateInput, BannerImageUncheckedUpdateInput>
-  }
-
-  /**
-   * BannerImage delete
-   */
-  export type BannerImageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BannerImage
-     */
-    select?: BannerImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BannerImage
-     */
-    omit?: BannerImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BannerImageInclude<ExtArgs> | null
-    /**
-     * Filter which BannerImage to delete.
-     */
-    where: BannerImageWhereUniqueInput
-  }
-
-  /**
-   * BannerImage deleteMany
-   */
-  export type BannerImageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which BannerImages to delete
-     */
-    where?: BannerImageWhereInput
-    /**
-     * Limit how many BannerImages to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * BannerImage findRaw
-   */
-  export type BannerImageFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
-     */
-    filter?: InputJsonValue
-    /**
-     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
-     */
-    options?: InputJsonValue
-  }
-
-  /**
-   * BannerImage aggregateRaw
-   */
-  export type BannerImageAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
-     */
-    pipeline?: InputJsonValue[]
-    /**
-     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
-     */
-    options?: InputJsonValue
-  }
-
-  /**
-   * BannerImage without action
-   */
-  export type BannerImageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BannerImage
-     */
-    select?: BannerImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BannerImage
-     */
-    omit?: BannerImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BannerImageInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Location
-   */
-
-  export type AggregateLocation = {
-    _count: LocationCountAggregateOutputType | null
-    _min: LocationMinAggregateOutputType | null
-    _max: LocationMaxAggregateOutputType | null
-  }
-
-  export type LocationMinAggregateOutputType = {
+  export type UserMinAggregateOutputType = {
     id: string | null
     name: string | null
-    slug: string | null
-    type: $Enums.LocationType | null
-    description: string | null
-    parentId: string | null
-    address: string | null
+    email: string | null
+    image: string | null
+    role: $Enums.UserType | null
+    onboarding: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type LocationMaxAggregateOutputType = {
+  export type UserMaxAggregateOutputType = {
     id: string | null
     name: string | null
-    slug: string | null
-    type: $Enums.LocationType | null
-    description: string | null
-    parentId: string | null
-    address: string | null
+    email: string | null
+    image: string | null
+    role: $Enums.UserType | null
+    onboarding: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type LocationCountAggregateOutputType = {
+  export type UserCountAggregateOutputType = {
     id: number
     name: number
-    slug: number
-    type: number
-    description: number
-    parentId: number
-    address: number
+    email: number
+    image: number
+    role: number
+    onboarding: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
-  export type LocationMinAggregateInputType = {
+  export type UserMinAggregateInputType = {
     id?: true
     name?: true
-    slug?: true
-    type?: true
-    description?: true
-    parentId?: true
-    address?: true
+    email?: true
+    image?: true
+    role?: true
+    onboarding?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
-  export type LocationMaxAggregateInputType = {
+  export type UserMaxAggregateInputType = {
     id?: true
     name?: true
-    slug?: true
-    type?: true
-    description?: true
-    parentId?: true
-    address?: true
+    email?: true
+    image?: true
+    role?: true
+    onboarding?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
-  export type LocationCountAggregateInputType = {
+  export type UserCountAggregateInputType = {
     id?: true
     name?: true
-    slug?: true
-    type?: true
-    description?: true
-    parentId?: true
-    address?: true
+    email?: true
+    image?: true
+    role?: true
+    onboarding?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
-  export type LocationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Location to aggregate.
+     * Filter which User to aggregate.
      */
-    where?: LocationWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Locations to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: LocationOrderByWithRelationInput | LocationOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: LocationWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Locations from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Locations.
+     * Skip the first `n` Users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Locations
+     * Count returned Users
     **/
-    _count?: true | LocationCountAggregateInputType
+    _count?: true | UserCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: LocationMinAggregateInputType
+    _min?: UserMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: LocationMaxAggregateInputType
+    _max?: UserMaxAggregateInputType
   }
 
-  export type GetLocationAggregateType<T extends LocationAggregateArgs> = {
-        [P in keyof T & keyof AggregateLocation]: P extends '_count' | 'count'
+  export type GetUserAggregateType<T extends UserAggregateArgs> = {
+        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateLocation[P]>
-      : GetScalarType<T[P], AggregateLocation[P]>
+        : GetScalarType<T[P], AggregateUser[P]>
+      : GetScalarType<T[P], AggregateUser[P]>
   }
 
 
 
 
-  export type LocationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LocationWhereInput
-    orderBy?: LocationOrderByWithAggregationInput | LocationOrderByWithAggregationInput[]
-    by: LocationScalarFieldEnum[] | LocationScalarFieldEnum
-    having?: LocationScalarWhereWithAggregatesInput
+  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
+    by: UserScalarFieldEnum[] | UserScalarFieldEnum
+    having?: UserScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: LocationCountAggregateInputType | true
-    _min?: LocationMinAggregateInputType
-    _max?: LocationMaxAggregateInputType
+    _count?: UserCountAggregateInputType | true
+    _min?: UserMinAggregateInputType
+    _max?: UserMaxAggregateInputType
   }
 
-  export type LocationGroupByOutputType = {
+  export type UserGroupByOutputType = {
     id: string
-    name: string
-    slug: string
-    type: $Enums.LocationType
-    description: string | null
-    parentId: string | null
-    address: string
-    _count: LocationCountAggregateOutputType | null
-    _min: LocationMinAggregateOutputType | null
-    _max: LocationMaxAggregateOutputType | null
+    name: string | null
+    email: string
+    image: string | null
+    role: $Enums.UserType
+    onboarding: boolean | null
+    createdAt: Date
+    updatedAt: Date
+    _count: UserCountAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
   }
 
-  type GetLocationGroupByPayload<T extends LocationGroupByArgs> = Prisma.PrismaPromise<
+  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<LocationGroupByOutputType, T['by']> &
+      PickEnumerable<UserGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof LocationGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], LocationGroupByOutputType[P]>
-            : GetScalarType<T[P], LocationGroupByOutputType[P]>
+              : GetScalarType<T[P], UserGroupByOutputType[P]>
+            : GetScalarType<T[P], UserGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type LocationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    slug?: boolean
-    type?: boolean
-    description?: boolean
-    parentId?: boolean
-    address?: boolean
-    parent?: boolean | Location$parentArgs<ExtArgs>
-    children?: boolean | Location$childrenArgs<ExtArgs>
-    BannerImages?: boolean | Location$BannerImagesArgs<ExtArgs>
-    _count?: boolean | LocationCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["location"]>
+    email?: boolean
+    image?: boolean
+    role?: boolean
+    onboarding?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["user"]>
 
 
 
-  export type LocationSelectScalar = {
+  export type UserSelectScalar = {
     id?: boolean
     name?: boolean
-    slug?: boolean
-    type?: boolean
-    description?: boolean
-    parentId?: boolean
-    address?: boolean
+    email?: boolean
+    image?: boolean
+    role?: boolean
+    onboarding?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type LocationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "slug" | "type" | "description" | "parentId" | "address", ExtArgs["result"]["location"]>
-  export type LocationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    parent?: boolean | Location$parentArgs<ExtArgs>
-    children?: boolean | Location$childrenArgs<ExtArgs>
-    BannerImages?: boolean | Location$BannerImagesArgs<ExtArgs>
-    _count?: boolean | LocationCountOutputTypeDefaultArgs<ExtArgs>
-  }
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "image" | "role" | "onboarding" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 
-  export type $LocationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Location"
-    objects: {
-      parent: Prisma.$LocationPayload<ExtArgs> | null
-      children: Prisma.$LocationPayload<ExtArgs>[]
-      BannerImages: Prisma.$BannerImagePayload<ExtArgs>[]
-    }
+  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "User"
+    objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      name: string
-      slug: string
-      type: $Enums.LocationType
-      description: string | null
-      parentId: string | null
-      address: string
-    }, ExtArgs["result"]["location"]>
+      name: string | null
+      email: string
+      image: string | null
+      role: $Enums.UserType
+      onboarding: boolean | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["user"]>
     composites: {}
   }
 
-  type LocationGetPayload<S extends boolean | null | undefined | LocationDefaultArgs> = $Result.GetResult<Prisma.$LocationPayload, S>
+  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
 
-  type LocationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<LocationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: LocationCountAggregateInputType | true
+  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserCountAggregateInputType | true
     }
 
-  export interface LocationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Location'], meta: { name: 'Location' } }
+  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
     /**
-     * Find zero or one Location that matches the filter.
-     * @param {LocationFindUniqueArgs} args - Arguments to find a Location
+     * Find zero or one User that matches the filter.
+     * @param {UserFindUniqueArgs} args - Arguments to find a User
      * @example
-     * // Get one Location
-     * const location = await prisma.location.findUnique({
+     * // Get one User
+     * const user = await prisma.user.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends LocationFindUniqueArgs>(args: SelectSubset<T, LocationFindUniqueArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends UserFindUniqueArgs>(args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Location that matches the filter or throw an error with `error.code='P2025'`
+     * Find one User that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {LocationFindUniqueOrThrowArgs} args - Arguments to find a Location
+     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
      * @example
-     * // Get one Location
-     * const location = await prisma.location.findUniqueOrThrow({
+     * // Get one User
+     * const user = await prisma.user.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends LocationFindUniqueOrThrowArgs>(args: SelectSubset<T, LocationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Location that matches the filter.
+     * Find the first User that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocationFindFirstArgs} args - Arguments to find a Location
+     * @param {UserFindFirstArgs} args - Arguments to find a User
      * @example
-     * // Get one Location
-     * const location = await prisma.location.findFirst({
+     * // Get one User
+     * const user = await prisma.user.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends LocationFindFirstArgs>(args?: SelectSubset<T, LocationFindFirstArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends UserFindFirstArgs>(args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Location that matches the filter or
+     * Find the first User that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocationFindFirstOrThrowArgs} args - Arguments to find a Location
+     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
      * @example
-     * // Get one Location
-     * const location = await prisma.location.findFirstOrThrow({
+     * // Get one User
+     * const user = await prisma.user.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends LocationFindFirstOrThrowArgs>(args?: SelectSubset<T, LocationFindFirstOrThrowArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Locations that matches the filter.
+     * Find zero or more Users that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Locations
-     * const locations = await prisma.location.findMany()
+     * // Get all Users
+     * const users = await prisma.user.findMany()
      * 
-     * // Get first 10 Locations
-     * const locations = await prisma.location.findMany({ take: 10 })
+     * // Get first 10 Users
+     * const users = await prisma.user.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const locationWithIdOnly = await prisma.location.findMany({ select: { id: true } })
+     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends LocationFindManyArgs>(args?: SelectSubset<T, LocationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Location.
-     * @param {LocationCreateArgs} args - Arguments to create a Location.
+     * Create a User.
+     * @param {UserCreateArgs} args - Arguments to create a User.
      * @example
-     * // Create one Location
-     * const Location = await prisma.location.create({
+     * // Create one User
+     * const User = await prisma.user.create({
      *   data: {
-     *     // ... data to create a Location
+     *     // ... data to create a User
      *   }
      * })
      * 
      */
-    create<T extends LocationCreateArgs>(args: SelectSubset<T, LocationCreateArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends UserCreateArgs>(args: SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Locations.
-     * @param {LocationCreateManyArgs} args - Arguments to create many Locations.
+     * Create many Users.
+     * @param {UserCreateManyArgs} args - Arguments to create many Users.
      * @example
-     * // Create many Locations
-     * const location = await prisma.location.createMany({
+     * // Create many Users
+     * const user = await prisma.user.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends LocationCreateManyArgs>(args?: SelectSubset<T, LocationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Location.
-     * @param {LocationDeleteArgs} args - Arguments to delete one Location.
+     * Delete a User.
+     * @param {UserDeleteArgs} args - Arguments to delete one User.
      * @example
-     * // Delete one Location
-     * const Location = await prisma.location.delete({
+     * // Delete one User
+     * const User = await prisma.user.delete({
      *   where: {
-     *     // ... filter to delete one Location
+     *     // ... filter to delete one User
      *   }
      * })
      * 
      */
-    delete<T extends LocationDeleteArgs>(args: SelectSubset<T, LocationDeleteArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends UserDeleteArgs>(args: SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Location.
-     * @param {LocationUpdateArgs} args - Arguments to update one Location.
+     * Update one User.
+     * @param {UserUpdateArgs} args - Arguments to update one User.
      * @example
-     * // Update one Location
-     * const location = await prisma.location.update({
+     * // Update one User
+     * const user = await prisma.user.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2295,30 +1204,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends LocationUpdateArgs>(args: SelectSubset<T, LocationUpdateArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends UserUpdateArgs>(args: SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Locations.
-     * @param {LocationDeleteManyArgs} args - Arguments to filter Locations to delete.
+     * Delete zero or more Users.
+     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
      * @example
-     * // Delete a few Locations
-     * const { count } = await prisma.location.deleteMany({
+     * // Delete a few Users
+     * const { count } = await prisma.user.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends LocationDeleteManyArgs>(args?: SelectSubset<T, LocationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends UserDeleteManyArgs>(args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Locations.
+     * Update zero or more Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Locations
-     * const location = await prisma.location.updateMany({
+     * // Update many Users
+     * const user = await prisma.user.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2328,79 +1237,79 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends LocationUpdateManyArgs>(args: SelectSubset<T, LocationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Location.
-     * @param {LocationUpsertArgs} args - Arguments to update or create a Location.
+     * Create or update one User.
+     * @param {UserUpsertArgs} args - Arguments to update or create a User.
      * @example
-     * // Update or create a Location
-     * const location = await prisma.location.upsert({
+     * // Update or create a User
+     * const user = await prisma.user.upsert({
      *   create: {
-     *     // ... data to create a Location
+     *     // ... data to create a User
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Location we want to update
+     *     // ... the filter for the User we want to update
      *   }
      * })
      */
-    upsert<T extends LocationUpsertArgs>(args: SelectSubset<T, LocationUpsertArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends UserUpsertArgs>(args: SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Locations that matches the filter.
-     * @param {LocationFindRawArgs} args - Select which filters you would like to apply.
+     * Find zero or more Users that matches the filter.
+     * @param {UserFindRawArgs} args - Select which filters you would like to apply.
      * @example
-     * const location = await prisma.location.findRaw({
+     * const user = await prisma.user.findRaw({
      *   filter: { age: { $gt: 25 } }
      * })
      */
-    findRaw(args?: LocationFindRawArgs): Prisma.PrismaPromise<JsonObject>
+    findRaw(args?: UserFindRawArgs): Prisma.PrismaPromise<JsonObject>
 
     /**
-     * Perform aggregation operations on a Location.
-     * @param {LocationAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * Perform aggregation operations on a User.
+     * @param {UserAggregateRawArgs} args - Select which aggregations you would like to apply.
      * @example
-     * const location = await prisma.location.aggregateRaw({
+     * const user = await prisma.user.aggregateRaw({
      *   pipeline: [
      *     { $match: { status: "registered" } },
      *     { $group: { _id: "$country", total: { $sum: 1 } } }
      *   ]
      * })
      */
-    aggregateRaw(args?: LocationAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+    aggregateRaw(args?: UserAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
 
 
     /**
-     * Count the number of Locations.
+     * Count the number of Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocationCountArgs} args - Arguments to filter Locations to count.
+     * @param {UserCountArgs} args - Arguments to filter Users to count.
      * @example
-     * // Count the number of Locations
-     * const count = await prisma.location.count({
+     * // Count the number of Users
+     * const count = await prisma.user.count({
      *   where: {
-     *     // ... the filter for the Locations we want to count
+     *     // ... the filter for the Users we want to count
      *   }
      * })
     **/
-    count<T extends LocationCountArgs>(
-      args?: Subset<T, LocationCountArgs>,
+    count<T extends UserCountArgs>(
+      args?: Subset<T, UserCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], LocationCountAggregateOutputType>
+          : GetScalarType<T['select'], UserCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Location.
+     * Allows you to perform aggregations operations on a User.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2420,13 +1329,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends LocationAggregateArgs>(args: Subset<T, LocationAggregateArgs>): Prisma.PrismaPromise<GetLocationAggregateType<T>>
+    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
 
     /**
-     * Group by Location.
+     * Group by User.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocationGroupByArgs} args - Group by arguments.
+     * @param {UserGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2441,14 +1350,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends LocationGroupByArgs,
+      T extends UserGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: LocationGroupByArgs['orderBy'] }
-        : { orderBy?: LocationGroupByArgs['orderBy'] },
+        ? { orderBy: UserGroupByArgs['orderBy'] }
+        : { orderBy?: UserGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2497,24 +1406,21 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, LocationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLocationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Location model
+   * Fields of the User model
    */
-  readonly fields: LocationFieldRefs;
+  readonly fields: UserFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Location.
+   * The delegate class that acts as a "Promise-like" for User.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__LocationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    parent<T extends Location$parentArgs<ExtArgs> = {}>(args?: Subset<T, Location$parentArgs<ExtArgs>>): Prisma__LocationClient<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    children<T extends Location$childrenArgs<ExtArgs> = {}>(args?: Subset<T, Location$childrenArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    BannerImages<T extends Location$BannerImagesArgs<ExtArgs> = {}>(args?: Subset<T, Location$BannerImagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BannerImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2541,361 +1447,326 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Location model
+   * Fields of the User model
    */
-  interface LocationFieldRefs {
-    readonly id: FieldRef<"Location", 'String'>
-    readonly name: FieldRef<"Location", 'String'>
-    readonly slug: FieldRef<"Location", 'String'>
-    readonly type: FieldRef<"Location", 'LocationType'>
-    readonly description: FieldRef<"Location", 'String'>
-    readonly parentId: FieldRef<"Location", 'String'>
-    readonly address: FieldRef<"Location", 'String'>
+  interface UserFieldRefs {
+    readonly id: FieldRef<"User", 'String'>
+    readonly name: FieldRef<"User", 'String'>
+    readonly email: FieldRef<"User", 'String'>
+    readonly image: FieldRef<"User", 'String'>
+    readonly role: FieldRef<"User", 'UserType'>
+    readonly onboarding: FieldRef<"User", 'Boolean'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
+    readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Location findUnique
+   * User findUnique
    */
-  export type LocationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Location
+     * Select specific fields to fetch from the User
      */
-    select?: LocationSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Location
+     * Omit specific fields from the User
      */
-    omit?: LocationOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which User to fetch.
      */
-    include?: LocationInclude<ExtArgs> | null
-    /**
-     * Filter, which Location to fetch.
-     */
-    where: LocationWhereUniqueInput
+    where: UserWhereUniqueInput
   }
 
   /**
-   * Location findUniqueOrThrow
+   * User findUniqueOrThrow
    */
-  export type LocationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Location
+     * Select specific fields to fetch from the User
      */
-    select?: LocationSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Location
+     * Omit specific fields from the User
      */
-    omit?: LocationOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which User to fetch.
      */
-    include?: LocationInclude<ExtArgs> | null
-    /**
-     * Filter, which Location to fetch.
-     */
-    where: LocationWhereUniqueInput
+    where: UserWhereUniqueInput
   }
 
   /**
-   * Location findFirst
+   * User findFirst
    */
-  export type LocationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Location
+     * Select specific fields to fetch from the User
      */
-    select?: LocationSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Location
+     * Omit specific fields from the User
      */
-    omit?: LocationOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which User to fetch.
      */
-    include?: LocationInclude<ExtArgs> | null
-    /**
-     * Filter, which Location to fetch.
-     */
-    where?: LocationWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Locations to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: LocationOrderByWithRelationInput | LocationOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Locations.
+     * Sets the position for searching for Users.
      */
-    cursor?: LocationWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Locations from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Locations.
+     * Skip the first `n` Users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Locations.
+     * Filter by unique combinations of Users.
      */
-    distinct?: LocationScalarFieldEnum | LocationScalarFieldEnum[]
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
-   * Location findFirstOrThrow
+   * User findFirstOrThrow
    */
-  export type LocationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Location
+     * Select specific fields to fetch from the User
      */
-    select?: LocationSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Location
+     * Omit specific fields from the User
      */
-    omit?: LocationOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which User to fetch.
      */
-    include?: LocationInclude<ExtArgs> | null
-    /**
-     * Filter, which Location to fetch.
-     */
-    where?: LocationWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Locations to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: LocationOrderByWithRelationInput | LocationOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Locations.
+     * Sets the position for searching for Users.
      */
-    cursor?: LocationWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Locations from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Locations.
+     * Skip the first `n` Users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Locations.
+     * Filter by unique combinations of Users.
      */
-    distinct?: LocationScalarFieldEnum | LocationScalarFieldEnum[]
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
-   * Location findMany
+   * User findMany
    */
-  export type LocationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Location
+     * Select specific fields to fetch from the User
      */
-    select?: LocationSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Location
+     * Omit specific fields from the User
      */
-    omit?: LocationOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which Users to fetch.
      */
-    include?: LocationInclude<ExtArgs> | null
-    /**
-     * Filter, which Locations to fetch.
-     */
-    where?: LocationWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Locations to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: LocationOrderByWithRelationInput | LocationOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Locations.
+     * Sets the position for listing Users.
      */
-    cursor?: LocationWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Locations from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Locations.
+     * Skip the first `n` Users.
      */
     skip?: number
-    distinct?: LocationScalarFieldEnum | LocationScalarFieldEnum[]
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
-   * Location create
+   * User create
    */
-  export type LocationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Location
+     * Select specific fields to fetch from the User
      */
-    select?: LocationSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Location
+     * Omit specific fields from the User
      */
-    omit?: LocationOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * The data needed to create a User.
      */
-    include?: LocationInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Location.
-     */
-    data: XOR<LocationCreateInput, LocationUncheckedCreateInput>
+    data: XOR<UserCreateInput, UserUncheckedCreateInput>
   }
 
   /**
-   * Location createMany
+   * User createMany
    */
-  export type LocationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Locations.
+     * The data used to create many Users.
      */
-    data: LocationCreateManyInput | LocationCreateManyInput[]
+    data: UserCreateManyInput | UserCreateManyInput[]
   }
 
   /**
-   * Location update
+   * User update
    */
-  export type LocationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Location
+     * Select specific fields to fetch from the User
      */
-    select?: LocationSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Location
+     * Omit specific fields from the User
      */
-    omit?: LocationOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * The data needed to update a User.
      */
-    include?: LocationInclude<ExtArgs> | null
+    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
     /**
-     * The data needed to update a Location.
+     * Choose, which User to update.
      */
-    data: XOR<LocationUpdateInput, LocationUncheckedUpdateInput>
-    /**
-     * Choose, which Location to update.
-     */
-    where: LocationWhereUniqueInput
+    where: UserWhereUniqueInput
   }
 
   /**
-   * Location updateMany
+   * User updateMany
    */
-  export type LocationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Locations.
+     * The data used to update Users.
      */
-    data: XOR<LocationUpdateManyMutationInput, LocationUncheckedUpdateManyInput>
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
     /**
-     * Filter which Locations to update
+     * Filter which Users to update
      */
-    where?: LocationWhereInput
+    where?: UserWhereInput
     /**
-     * Limit how many Locations to update.
+     * Limit how many Users to update.
      */
     limit?: number
   }
 
   /**
-   * Location upsert
+   * User upsert
    */
-  export type LocationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Location
+     * Select specific fields to fetch from the User
      */
-    select?: LocationSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Location
+     * Omit specific fields from the User
      */
-    omit?: LocationOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * The filter to search for the User to update in case it exists.
      */
-    include?: LocationInclude<ExtArgs> | null
+    where: UserWhereUniqueInput
     /**
-     * The filter to search for the Location to update in case it exists.
+     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
      */
-    where: LocationWhereUniqueInput
+    create: XOR<UserCreateInput, UserUncheckedCreateInput>
     /**
-     * In case the Location found by the `where` argument doesn't exist, create a new Location with this data.
+     * In case the User was found with the provided `where` argument, update it with this data.
      */
-    create: XOR<LocationCreateInput, LocationUncheckedCreateInput>
-    /**
-     * In case the Location was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<LocationUpdateInput, LocationUncheckedUpdateInput>
+    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
   }
 
   /**
-   * Location delete
+   * User delete
    */
-  export type LocationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Location
+     * Select specific fields to fetch from the User
      */
-    select?: LocationSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Location
+     * Omit specific fields from the User
      */
-    omit?: LocationOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter which User to delete.
      */
-    include?: LocationInclude<ExtArgs> | null
-    /**
-     * Filter which Location to delete.
-     */
-    where: LocationWhereUniqueInput
+    where: UserWhereUniqueInput
   }
 
   /**
-   * Location deleteMany
+   * User deleteMany
    */
-  export type LocationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Locations to delete
+     * Filter which Users to delete
      */
-    where?: LocationWhereInput
+    where?: UserWhereInput
     /**
-     * Limit how many Locations to delete.
+     * Limit how many Users to delete.
      */
     limit?: number
   }
 
   /**
-   * Location findRaw
+   * User findRaw
    */
-  export type LocationFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
      */
@@ -2907,9 +1778,9 @@ export namespace Prisma {
   }
 
   /**
-   * Location aggregateRaw
+   * User aggregateRaw
    */
-  export type LocationAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
      */
@@ -2921,88 +1792,17 @@ export namespace Prisma {
   }
 
   /**
-   * Location.parent
+   * User without action
    */
-  export type Location$parentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Location
+     * Select specific fields to fetch from the User
      */
-    select?: LocationSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Location
+     * Omit specific fields from the User
      */
-    omit?: LocationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocationInclude<ExtArgs> | null
-    where?: LocationWhereInput
-  }
-
-  /**
-   * Location.children
-   */
-  export type Location$childrenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Location
-     */
-    select?: LocationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Location
-     */
-    omit?: LocationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocationInclude<ExtArgs> | null
-    where?: LocationWhereInput
-    orderBy?: LocationOrderByWithRelationInput | LocationOrderByWithRelationInput[]
-    cursor?: LocationWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: LocationScalarFieldEnum | LocationScalarFieldEnum[]
-  }
-
-  /**
-   * Location.BannerImages
-   */
-  export type Location$BannerImagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the BannerImage
-     */
-    select?: BannerImageSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the BannerImage
-     */
-    omit?: BannerImageOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: BannerImageInclude<ExtArgs> | null
-    where?: BannerImageWhereInput
-    orderBy?: BannerImageOrderByWithRelationInput | BannerImageOrderByWithRelationInput[]
-    cursor?: BannerImageWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: BannerImageScalarFieldEnum | BannerImageScalarFieldEnum[]
-  }
-
-  /**
-   * Location without action
-   */
-  export type LocationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Location
-     */
-    select?: LocationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Location
-     */
-    omit?: LocationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocationInclude<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
   }
 
 
@@ -3010,26 +1810,18 @@ export namespace Prisma {
    * Enums
    */
 
-  export const BannerImageScalarFieldEnum: {
-    id: 'id',
-    url: 'url',
-    locationId: 'locationId'
-  };
-
-  export type BannerImageScalarFieldEnum = (typeof BannerImageScalarFieldEnum)[keyof typeof BannerImageScalarFieldEnum]
-
-
-  export const LocationScalarFieldEnum: {
+  export const UserScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    slug: 'slug',
-    type: 'type',
-    description: 'description',
-    parentId: 'parentId',
-    address: 'address'
+    email: 'email',
+    image: 'image',
+    role: 'role',
+    onboarding: 'onboarding',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
-  export type LocationScalarFieldEnum = (typeof LocationScalarFieldEnum)[keyof typeof LocationScalarFieldEnum]
+  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3068,16 +1860,37 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'LocationType'
+   * Reference to a field of type 'UserType'
    */
-  export type EnumLocationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LocationType'>
+  export type EnumUserTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserType'>
     
 
 
   /**
-   * Reference to a field of type 'LocationType[]'
+   * Reference to a field of type 'UserType[]'
    */
-  export type ListEnumLocationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LocationType[]'>
+  export type ListEnumUserTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -3098,230 +1911,144 @@ export namespace Prisma {
    */
 
 
-  export type BannerImageWhereInput = {
-    AND?: BannerImageWhereInput | BannerImageWhereInput[]
-    OR?: BannerImageWhereInput[]
-    NOT?: BannerImageWhereInput | BannerImageWhereInput[]
-    id?: StringFilter<"BannerImage"> | string
-    url?: StringFilter<"BannerImage"> | string
-    locationId?: StringFilter<"BannerImage"> | string
-    location?: XOR<LocationScalarRelationFilter, LocationWhereInput>
+  export type UserWhereInput = {
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    id?: StringFilter<"User"> | string
+    name?: StringNullableFilter<"User"> | string | null
+    email?: StringFilter<"User"> | string
+    image?: StringNullableFilter<"User"> | string | null
+    role?: EnumUserTypeFilter<"User"> | $Enums.UserType
+    onboarding?: BoolNullableFilter<"User"> | boolean | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
   }
 
-  export type BannerImageOrderByWithRelationInput = {
-    id?: SortOrder
-    url?: SortOrder
-    locationId?: SortOrder
-    location?: LocationOrderByWithRelationInput
-  }
-
-  export type BannerImageWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: BannerImageWhereInput | BannerImageWhereInput[]
-    OR?: BannerImageWhereInput[]
-    NOT?: BannerImageWhereInput | BannerImageWhereInput[]
-    url?: StringFilter<"BannerImage"> | string
-    locationId?: StringFilter<"BannerImage"> | string
-    location?: XOR<LocationScalarRelationFilter, LocationWhereInput>
-  }, "id">
-
-  export type BannerImageOrderByWithAggregationInput = {
-    id?: SortOrder
-    url?: SortOrder
-    locationId?: SortOrder
-    _count?: BannerImageCountOrderByAggregateInput
-    _max?: BannerImageMaxOrderByAggregateInput
-    _min?: BannerImageMinOrderByAggregateInput
-  }
-
-  export type BannerImageScalarWhereWithAggregatesInput = {
-    AND?: BannerImageScalarWhereWithAggregatesInput | BannerImageScalarWhereWithAggregatesInput[]
-    OR?: BannerImageScalarWhereWithAggregatesInput[]
-    NOT?: BannerImageScalarWhereWithAggregatesInput | BannerImageScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"BannerImage"> | string
-    url?: StringWithAggregatesFilter<"BannerImage"> | string
-    locationId?: StringWithAggregatesFilter<"BannerImage"> | string
-  }
-
-  export type LocationWhereInput = {
-    AND?: LocationWhereInput | LocationWhereInput[]
-    OR?: LocationWhereInput[]
-    NOT?: LocationWhereInput | LocationWhereInput[]
-    id?: StringFilter<"Location"> | string
-    name?: StringFilter<"Location"> | string
-    slug?: StringFilter<"Location"> | string
-    type?: EnumLocationTypeFilter<"Location"> | $Enums.LocationType
-    description?: StringNullableFilter<"Location"> | string | null
-    parentId?: StringNullableFilter<"Location"> | string | null
-    address?: StringFilter<"Location"> | string
-    parent?: XOR<LocationNullableScalarRelationFilter, LocationWhereInput> | null
-    children?: LocationListRelationFilter
-    BannerImages?: BannerImageListRelationFilter
-  }
-
-  export type LocationOrderByWithRelationInput = {
+  export type UserOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    slug?: SortOrder
-    type?: SortOrder
-    description?: SortOrder
-    parentId?: SortOrder
-    address?: SortOrder
-    parent?: LocationOrderByWithRelationInput
-    children?: LocationOrderByRelationAggregateInput
-    BannerImages?: BannerImageOrderByRelationAggregateInput
+    email?: SortOrder
+    image?: SortOrder
+    role?: SortOrder
+    onboarding?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type LocationWhereUniqueInput = Prisma.AtLeast<{
+  export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    slug?: string
-    address?: string
-    AND?: LocationWhereInput | LocationWhereInput[]
-    OR?: LocationWhereInput[]
-    NOT?: LocationWhereInput | LocationWhereInput[]
-    name?: StringFilter<"Location"> | string
-    type?: EnumLocationTypeFilter<"Location"> | $Enums.LocationType
-    description?: StringNullableFilter<"Location"> | string | null
-    parentId?: StringNullableFilter<"Location"> | string | null
-    parent?: XOR<LocationNullableScalarRelationFilter, LocationWhereInput> | null
-    children?: LocationListRelationFilter
-    BannerImages?: BannerImageListRelationFilter
-  }, "id" | "slug" | "address">
+    email?: string
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    name?: StringNullableFilter<"User"> | string | null
+    image?: StringNullableFilter<"User"> | string | null
+    role?: EnumUserTypeFilter<"User"> | $Enums.UserType
+    onboarding?: BoolNullableFilter<"User"> | boolean | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+  }, "id" | "email">
 
-  export type LocationOrderByWithAggregationInput = {
+  export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    slug?: SortOrder
-    type?: SortOrder
-    description?: SortOrder
-    parentId?: SortOrder
-    address?: SortOrder
-    _count?: LocationCountOrderByAggregateInput
-    _max?: LocationMaxOrderByAggregateInput
-    _min?: LocationMinOrderByAggregateInput
+    email?: SortOrder
+    image?: SortOrder
+    role?: SortOrder
+    onboarding?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: UserCountOrderByAggregateInput
+    _max?: UserMaxOrderByAggregateInput
+    _min?: UserMinOrderByAggregateInput
   }
 
-  export type LocationScalarWhereWithAggregatesInput = {
-    AND?: LocationScalarWhereWithAggregatesInput | LocationScalarWhereWithAggregatesInput[]
-    OR?: LocationScalarWhereWithAggregatesInput[]
-    NOT?: LocationScalarWhereWithAggregatesInput | LocationScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Location"> | string
-    name?: StringWithAggregatesFilter<"Location"> | string
-    slug?: StringWithAggregatesFilter<"Location"> | string
-    type?: EnumLocationTypeWithAggregatesFilter<"Location"> | $Enums.LocationType
-    description?: StringNullableWithAggregatesFilter<"Location"> | string | null
-    parentId?: StringNullableWithAggregatesFilter<"Location"> | string | null
-    address?: StringWithAggregatesFilter<"Location"> | string
+  export type UserScalarWhereWithAggregatesInput = {
+    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    OR?: UserScalarWhereWithAggregatesInput[]
+    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"User"> | string
+    name?: StringNullableWithAggregatesFilter<"User"> | string | null
+    email?: StringWithAggregatesFilter<"User"> | string
+    image?: StringNullableWithAggregatesFilter<"User"> | string | null
+    role?: EnumUserTypeWithAggregatesFilter<"User"> | $Enums.UserType
+    onboarding?: BoolNullableWithAggregatesFilter<"User"> | boolean | null
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
-  export type BannerImageCreateInput = {
+  export type UserCreateInput = {
     id?: string
-    url: string
-    location: LocationCreateNestedOneWithoutBannerImagesInput
+    name?: string | null
+    email: string
+    image?: string | null
+    role?: $Enums.UserType
+    onboarding?: boolean | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type BannerImageUncheckedCreateInput = {
+  export type UserUncheckedCreateInput = {
     id?: string
-    url: string
-    locationId: string
+    name?: string | null
+    email: string
+    image?: string | null
+    role?: $Enums.UserType
+    onboarding?: boolean | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type BannerImageUpdateInput = {
-    url?: StringFieldUpdateOperationsInput | string
-    location?: LocationUpdateOneRequiredWithoutBannerImagesNestedInput
+  export type UserUpdateInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    onboarding?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type BannerImageUncheckedUpdateInput = {
-    url?: StringFieldUpdateOperationsInput | string
-    locationId?: StringFieldUpdateOperationsInput | string
+  export type UserUncheckedUpdateInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    onboarding?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type BannerImageCreateManyInput = {
+  export type UserCreateManyInput = {
     id?: string
-    url: string
-    locationId: string
+    name?: string | null
+    email: string
+    image?: string | null
+    role?: $Enums.UserType
+    onboarding?: boolean | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type BannerImageUpdateManyMutationInput = {
-    url?: StringFieldUpdateOperationsInput | string
+  export type UserUpdateManyMutationInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    onboarding?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type BannerImageUncheckedUpdateManyInput = {
-    url?: StringFieldUpdateOperationsInput | string
-    locationId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type LocationCreateInput = {
-    id?: string
-    name: string
-    slug: string
-    type: $Enums.LocationType
-    description?: string | null
-    address: string
-    parent?: LocationCreateNestedOneWithoutChildrenInput
-    children?: LocationCreateNestedManyWithoutParentInput
-    BannerImages?: BannerImageCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationUncheckedCreateInput = {
-    id?: string
-    name: string
-    slug: string
-    type: $Enums.LocationType
-    description?: string | null
-    parentId?: string | null
-    address: string
-    children?: LocationUncheckedCreateNestedManyWithoutParentInput
-    BannerImages?: BannerImageUncheckedCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    type?: EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: StringFieldUpdateOperationsInput | string
-    parent?: LocationUpdateOneWithoutChildrenNestedInput
-    children?: LocationUpdateManyWithoutParentNestedInput
-    BannerImages?: BannerImageUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    type?: EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    parentId?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: StringFieldUpdateOperationsInput | string
-    children?: LocationUncheckedUpdateManyWithoutParentNestedInput
-    BannerImages?: BannerImageUncheckedUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationCreateManyInput = {
-    id?: string
-    name: string
-    slug: string
-    type: $Enums.LocationType
-    description?: string | null
-    parentId?: string | null
-    address: string
-  }
-
-  export type LocationUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    type?: EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type LocationUncheckedUpdateManyInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    type?: EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    parentId?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: StringFieldUpdateOperationsInput | string
+  export type UserUncheckedUpdateManyInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: StringFieldUpdateOperationsInput | string
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    onboarding?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -3337,54 +2064,6 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type LocationScalarRelationFilter = {
-    is?: LocationWhereInput
-    isNot?: LocationWhereInput
-  }
-
-  export type BannerImageCountOrderByAggregateInput = {
-    id?: SortOrder
-    url?: SortOrder
-    locationId?: SortOrder
-  }
-
-  export type BannerImageMaxOrderByAggregateInput = {
-    id?: SortOrder
-    url?: SortOrder
-    locationId?: SortOrder
-  }
-
-  export type BannerImageMinOrderByAggregateInput = {
-    id?: SortOrder
-    url?: SortOrder
-    locationId?: SortOrder
-  }
-
-  export type StringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type EnumLocationTypeFilter<$PrismaModel = never> = {
-    equals?: $Enums.LocationType | EnumLocationTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.LocationType[] | ListEnumLocationTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.LocationType[] | ListEnumLocationTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumLocationTypeFilter<$PrismaModel> | $Enums.LocationType
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
@@ -3403,69 +2082,79 @@ export namespace Prisma {
     isSet?: boolean
   }
 
-  export type LocationNullableScalarRelationFilter = {
-    is?: LocationWhereInput | null
-    isNot?: LocationWhereInput | null
+  export type EnumUserTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserTypeFilter<$PrismaModel> | $Enums.UserType
   }
 
-  export type LocationListRelationFilter = {
-    every?: LocationWhereInput
-    some?: LocationWhereInput
-    none?: LocationWhereInput
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+    isSet?: boolean
   }
 
-  export type BannerImageListRelationFilter = {
-    every?: BannerImageWhereInput
-    some?: BannerImageWhereInput
-    none?: BannerImageWhereInput
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type LocationOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type BannerImageOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type LocationCountOrderByAggregateInput = {
+  export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    slug?: SortOrder
-    type?: SortOrder
-    description?: SortOrder
-    parentId?: SortOrder
-    address?: SortOrder
+    email?: SortOrder
+    image?: SortOrder
+    role?: SortOrder
+    onboarding?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type LocationMaxOrderByAggregateInput = {
+  export type UserMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    slug?: SortOrder
-    type?: SortOrder
-    description?: SortOrder
-    parentId?: SortOrder
-    address?: SortOrder
+    email?: SortOrder
+    image?: SortOrder
+    role?: SortOrder
+    onboarding?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type LocationMinOrderByAggregateInput = {
+  export type UserMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    slug?: SortOrder
-    type?: SortOrder
-    description?: SortOrder
-    parentId?: SortOrder
-    address?: SortOrder
+    email?: SortOrder
+    image?: SortOrder
+    role?: SortOrder
+    onboarding?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type EnumLocationTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.LocationType | EnumLocationTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.LocationType[] | ListEnumLocationTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.LocationType[] | ListEnumLocationTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumLocationTypeWithAggregatesFilter<$PrismaModel> | $Enums.LocationType
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumLocationTypeFilter<$PrismaModel>
-    _max?: NestedEnumLocationTypeFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -3487,60 +2176,37 @@ export namespace Prisma {
     isSet?: boolean
   }
 
-  export type LocationCreateNestedOneWithoutBannerImagesInput = {
-    create?: XOR<LocationCreateWithoutBannerImagesInput, LocationUncheckedCreateWithoutBannerImagesInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutBannerImagesInput
-    connect?: LocationWhereUniqueInput
+  export type EnumUserTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserTypeWithAggregatesFilter<$PrismaModel> | $Enums.UserType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUserTypeFilter<$PrismaModel>
+    _max?: NestedEnumUserTypeFilter<$PrismaModel>
   }
 
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+    isSet?: boolean
   }
 
-  export type LocationUpdateOneRequiredWithoutBannerImagesNestedInput = {
-    create?: XOR<LocationCreateWithoutBannerImagesInput, LocationUncheckedCreateWithoutBannerImagesInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutBannerImagesInput
-    upsert?: LocationUpsertWithoutBannerImagesInput
-    connect?: LocationWhereUniqueInput
-    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutBannerImagesInput, LocationUpdateWithoutBannerImagesInput>, LocationUncheckedUpdateWithoutBannerImagesInput>
-  }
-
-  export type LocationCreateNestedOneWithoutChildrenInput = {
-    create?: XOR<LocationCreateWithoutChildrenInput, LocationUncheckedCreateWithoutChildrenInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutChildrenInput
-    connect?: LocationWhereUniqueInput
-  }
-
-  export type LocationCreateNestedManyWithoutParentInput = {
-    create?: XOR<LocationCreateWithoutParentInput, LocationUncheckedCreateWithoutParentInput> | LocationCreateWithoutParentInput[] | LocationUncheckedCreateWithoutParentInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutParentInput | LocationCreateOrConnectWithoutParentInput[]
-    createMany?: LocationCreateManyParentInputEnvelope
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-  }
-
-  export type BannerImageCreateNestedManyWithoutLocationInput = {
-    create?: XOR<BannerImageCreateWithoutLocationInput, BannerImageUncheckedCreateWithoutLocationInput> | BannerImageCreateWithoutLocationInput[] | BannerImageUncheckedCreateWithoutLocationInput[]
-    connectOrCreate?: BannerImageCreateOrConnectWithoutLocationInput | BannerImageCreateOrConnectWithoutLocationInput[]
-    createMany?: BannerImageCreateManyLocationInputEnvelope
-    connect?: BannerImageWhereUniqueInput | BannerImageWhereUniqueInput[]
-  }
-
-  export type LocationUncheckedCreateNestedManyWithoutParentInput = {
-    create?: XOR<LocationCreateWithoutParentInput, LocationUncheckedCreateWithoutParentInput> | LocationCreateWithoutParentInput[] | LocationUncheckedCreateWithoutParentInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutParentInput | LocationCreateOrConnectWithoutParentInput[]
-    createMany?: LocationCreateManyParentInputEnvelope
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-  }
-
-  export type BannerImageUncheckedCreateNestedManyWithoutLocationInput = {
-    create?: XOR<BannerImageCreateWithoutLocationInput, BannerImageUncheckedCreateWithoutLocationInput> | BannerImageCreateWithoutLocationInput[] | BannerImageUncheckedCreateWithoutLocationInput[]
-    connectOrCreate?: BannerImageCreateOrConnectWithoutLocationInput | BannerImageCreateOrConnectWithoutLocationInput[]
-    createMany?: BannerImageCreateManyLocationInputEnvelope
-    connect?: BannerImageWhereUniqueInput | BannerImageWhereUniqueInput[]
-  }
-
-  export type EnumLocationTypeFieldUpdateOperationsInput = {
-    set?: $Enums.LocationType
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -3548,70 +2214,21 @@ export namespace Prisma {
     unset?: boolean
   }
 
-  export type LocationUpdateOneWithoutChildrenNestedInput = {
-    create?: XOR<LocationCreateWithoutChildrenInput, LocationUncheckedCreateWithoutChildrenInput>
-    connectOrCreate?: LocationCreateOrConnectWithoutChildrenInput
-    upsert?: LocationUpsertWithoutChildrenInput
-    disconnect?: boolean
-    delete?: LocationWhereInput | boolean
-    connect?: LocationWhereUniqueInput
-    update?: XOR<XOR<LocationUpdateToOneWithWhereWithoutChildrenInput, LocationUpdateWithoutChildrenInput>, LocationUncheckedUpdateWithoutChildrenInput>
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
   }
 
-  export type LocationUpdateManyWithoutParentNestedInput = {
-    create?: XOR<LocationCreateWithoutParentInput, LocationUncheckedCreateWithoutParentInput> | LocationCreateWithoutParentInput[] | LocationUncheckedCreateWithoutParentInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutParentInput | LocationCreateOrConnectWithoutParentInput[]
-    upsert?: LocationUpsertWithWhereUniqueWithoutParentInput | LocationUpsertWithWhereUniqueWithoutParentInput[]
-    createMany?: LocationCreateManyParentInputEnvelope
-    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    update?: LocationUpdateWithWhereUniqueWithoutParentInput | LocationUpdateWithWhereUniqueWithoutParentInput[]
-    updateMany?: LocationUpdateManyWithWhereWithoutParentInput | LocationUpdateManyWithWhereWithoutParentInput[]
-    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
+  export type EnumUserTypeFieldUpdateOperationsInput = {
+    set?: $Enums.UserType
   }
 
-  export type BannerImageUpdateManyWithoutLocationNestedInput = {
-    create?: XOR<BannerImageCreateWithoutLocationInput, BannerImageUncheckedCreateWithoutLocationInput> | BannerImageCreateWithoutLocationInput[] | BannerImageUncheckedCreateWithoutLocationInput[]
-    connectOrCreate?: BannerImageCreateOrConnectWithoutLocationInput | BannerImageCreateOrConnectWithoutLocationInput[]
-    upsert?: BannerImageUpsertWithWhereUniqueWithoutLocationInput | BannerImageUpsertWithWhereUniqueWithoutLocationInput[]
-    createMany?: BannerImageCreateManyLocationInputEnvelope
-    set?: BannerImageWhereUniqueInput | BannerImageWhereUniqueInput[]
-    disconnect?: BannerImageWhereUniqueInput | BannerImageWhereUniqueInput[]
-    delete?: BannerImageWhereUniqueInput | BannerImageWhereUniqueInput[]
-    connect?: BannerImageWhereUniqueInput | BannerImageWhereUniqueInput[]
-    update?: BannerImageUpdateWithWhereUniqueWithoutLocationInput | BannerImageUpdateWithWhereUniqueWithoutLocationInput[]
-    updateMany?: BannerImageUpdateManyWithWhereWithoutLocationInput | BannerImageUpdateManyWithWhereWithoutLocationInput[]
-    deleteMany?: BannerImageScalarWhereInput | BannerImageScalarWhereInput[]
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
+    unset?: boolean
   }
 
-  export type LocationUncheckedUpdateManyWithoutParentNestedInput = {
-    create?: XOR<LocationCreateWithoutParentInput, LocationUncheckedCreateWithoutParentInput> | LocationCreateWithoutParentInput[] | LocationUncheckedCreateWithoutParentInput[]
-    connectOrCreate?: LocationCreateOrConnectWithoutParentInput | LocationCreateOrConnectWithoutParentInput[]
-    upsert?: LocationUpsertWithWhereUniqueWithoutParentInput | LocationUpsertWithWhereUniqueWithoutParentInput[]
-    createMany?: LocationCreateManyParentInputEnvelope
-    set?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    disconnect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    delete?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    connect?: LocationWhereUniqueInput | LocationWhereUniqueInput[]
-    update?: LocationUpdateWithWhereUniqueWithoutParentInput | LocationUpdateWithWhereUniqueWithoutParentInput[]
-    updateMany?: LocationUpdateManyWithWhereWithoutParentInput | LocationUpdateManyWithWhereWithoutParentInput[]
-    deleteMany?: LocationScalarWhereInput | LocationScalarWhereInput[]
-  }
-
-  export type BannerImageUncheckedUpdateManyWithoutLocationNestedInput = {
-    create?: XOR<BannerImageCreateWithoutLocationInput, BannerImageUncheckedCreateWithoutLocationInput> | BannerImageCreateWithoutLocationInput[] | BannerImageUncheckedCreateWithoutLocationInput[]
-    connectOrCreate?: BannerImageCreateOrConnectWithoutLocationInput | BannerImageCreateOrConnectWithoutLocationInput[]
-    upsert?: BannerImageUpsertWithWhereUniqueWithoutLocationInput | BannerImageUpsertWithWhereUniqueWithoutLocationInput[]
-    createMany?: BannerImageCreateManyLocationInputEnvelope
-    set?: BannerImageWhereUniqueInput | BannerImageWhereUniqueInput[]
-    disconnect?: BannerImageWhereUniqueInput | BannerImageWhereUniqueInput[]
-    delete?: BannerImageWhereUniqueInput | BannerImageWhereUniqueInput[]
-    connect?: BannerImageWhereUniqueInput | BannerImageWhereUniqueInput[]
-    update?: BannerImageUpdateWithWhereUniqueWithoutLocationInput | BannerImageUpdateWithWhereUniqueWithoutLocationInput[]
-    updateMany?: BannerImageUpdateManyWithWhereWithoutLocationInput | BannerImageUpdateManyWithWhereWithoutLocationInput[]
-    deleteMany?: BannerImageScalarWhereInput | BannerImageScalarWhereInput[]
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -3626,6 +2243,45 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    isSet?: boolean
+  }
+
+  export type NestedEnumUserTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserTypeFilter<$PrismaModel> | $Enums.UserType
+  }
+
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+    isSet?: boolean
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -3654,38 +2310,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type NestedEnumLocationTypeFilter<$PrismaModel = never> = {
-    equals?: $Enums.LocationType | EnumLocationTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.LocationType[] | ListEnumLocationTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.LocationType[] | ListEnumLocationTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumLocationTypeFilter<$PrismaModel> | $Enums.LocationType
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-    isSet?: boolean
-  }
-
-  export type NestedEnumLocationTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.LocationType | EnumLocationTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.LocationType[] | ListEnumLocationTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.LocationType[] | ListEnumLocationTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumLocationTypeWithAggregatesFilter<$PrismaModel> | $Enums.LocationType
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumLocationTypeFilter<$PrismaModel>
-    _max?: NestedEnumLocationTypeFilter<$PrismaModel>
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -3718,278 +2342,37 @@ export namespace Prisma {
     isSet?: boolean
   }
 
-  export type LocationCreateWithoutBannerImagesInput = {
-    id?: string
-    name: string
-    slug: string
-    type: $Enums.LocationType
-    description?: string | null
-    address: string
-    parent?: LocationCreateNestedOneWithoutChildrenInput
-    children?: LocationCreateNestedManyWithoutParentInput
+  export type NestedEnumUserTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserTypeWithAggregatesFilter<$PrismaModel> | $Enums.UserType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUserTypeFilter<$PrismaModel>
+    _max?: NestedEnumUserTypeFilter<$PrismaModel>
   }
 
-  export type LocationUncheckedCreateWithoutBannerImagesInput = {
-    id?: string
-    name: string
-    slug: string
-    type: $Enums.LocationType
-    description?: string | null
-    parentId?: string | null
-    address: string
-    children?: LocationUncheckedCreateNestedManyWithoutParentInput
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+    isSet?: boolean
   }
 
-  export type LocationCreateOrConnectWithoutBannerImagesInput = {
-    where: LocationWhereUniqueInput
-    create: XOR<LocationCreateWithoutBannerImagesInput, LocationUncheckedCreateWithoutBannerImagesInput>
-  }
-
-  export type LocationUpsertWithoutBannerImagesInput = {
-    update: XOR<LocationUpdateWithoutBannerImagesInput, LocationUncheckedUpdateWithoutBannerImagesInput>
-    create: XOR<LocationCreateWithoutBannerImagesInput, LocationUncheckedCreateWithoutBannerImagesInput>
-    where?: LocationWhereInput
-  }
-
-  export type LocationUpdateToOneWithWhereWithoutBannerImagesInput = {
-    where?: LocationWhereInput
-    data: XOR<LocationUpdateWithoutBannerImagesInput, LocationUncheckedUpdateWithoutBannerImagesInput>
-  }
-
-  export type LocationUpdateWithoutBannerImagesInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    type?: EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: StringFieldUpdateOperationsInput | string
-    parent?: LocationUpdateOneWithoutChildrenNestedInput
-    children?: LocationUpdateManyWithoutParentNestedInput
-  }
-
-  export type LocationUncheckedUpdateWithoutBannerImagesInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    type?: EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    parentId?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: StringFieldUpdateOperationsInput | string
-    children?: LocationUncheckedUpdateManyWithoutParentNestedInput
-  }
-
-  export type LocationCreateWithoutChildrenInput = {
-    id?: string
-    name: string
-    slug: string
-    type: $Enums.LocationType
-    description?: string | null
-    address: string
-    parent?: LocationCreateNestedOneWithoutChildrenInput
-    BannerImages?: BannerImageCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationUncheckedCreateWithoutChildrenInput = {
-    id?: string
-    name: string
-    slug: string
-    type: $Enums.LocationType
-    description?: string | null
-    parentId?: string | null
-    address: string
-    BannerImages?: BannerImageUncheckedCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationCreateOrConnectWithoutChildrenInput = {
-    where: LocationWhereUniqueInput
-    create: XOR<LocationCreateWithoutChildrenInput, LocationUncheckedCreateWithoutChildrenInput>
-  }
-
-  export type LocationCreateWithoutParentInput = {
-    id?: string
-    name: string
-    slug: string
-    type: $Enums.LocationType
-    description?: string | null
-    address: string
-    children?: LocationCreateNestedManyWithoutParentInput
-    BannerImages?: BannerImageCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationUncheckedCreateWithoutParentInput = {
-    id?: string
-    name: string
-    slug: string
-    type: $Enums.LocationType
-    description?: string | null
-    address: string
-    children?: LocationUncheckedCreateNestedManyWithoutParentInput
-    BannerImages?: BannerImageUncheckedCreateNestedManyWithoutLocationInput
-  }
-
-  export type LocationCreateOrConnectWithoutParentInput = {
-    where: LocationWhereUniqueInput
-    create: XOR<LocationCreateWithoutParentInput, LocationUncheckedCreateWithoutParentInput>
-  }
-
-  export type LocationCreateManyParentInputEnvelope = {
-    data: LocationCreateManyParentInput | LocationCreateManyParentInput[]
-  }
-
-  export type BannerImageCreateWithoutLocationInput = {
-    id?: string
-    url: string
-  }
-
-  export type BannerImageUncheckedCreateWithoutLocationInput = {
-    id?: string
-    url: string
-  }
-
-  export type BannerImageCreateOrConnectWithoutLocationInput = {
-    where: BannerImageWhereUniqueInput
-    create: XOR<BannerImageCreateWithoutLocationInput, BannerImageUncheckedCreateWithoutLocationInput>
-  }
-
-  export type BannerImageCreateManyLocationInputEnvelope = {
-    data: BannerImageCreateManyLocationInput | BannerImageCreateManyLocationInput[]
-  }
-
-  export type LocationUpsertWithoutChildrenInput = {
-    update: XOR<LocationUpdateWithoutChildrenInput, LocationUncheckedUpdateWithoutChildrenInput>
-    create: XOR<LocationCreateWithoutChildrenInput, LocationUncheckedCreateWithoutChildrenInput>
-    where?: LocationWhereInput
-  }
-
-  export type LocationUpdateToOneWithWhereWithoutChildrenInput = {
-    where?: LocationWhereInput
-    data: XOR<LocationUpdateWithoutChildrenInput, LocationUncheckedUpdateWithoutChildrenInput>
-  }
-
-  export type LocationUpdateWithoutChildrenInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    type?: EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: StringFieldUpdateOperationsInput | string
-    parent?: LocationUpdateOneWithoutChildrenNestedInput
-    BannerImages?: BannerImageUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateWithoutChildrenInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    type?: EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    parentId?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: StringFieldUpdateOperationsInput | string
-    BannerImages?: BannerImageUncheckedUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUpsertWithWhereUniqueWithoutParentInput = {
-    where: LocationWhereUniqueInput
-    update: XOR<LocationUpdateWithoutParentInput, LocationUncheckedUpdateWithoutParentInput>
-    create: XOR<LocationCreateWithoutParentInput, LocationUncheckedCreateWithoutParentInput>
-  }
-
-  export type LocationUpdateWithWhereUniqueWithoutParentInput = {
-    where: LocationWhereUniqueInput
-    data: XOR<LocationUpdateWithoutParentInput, LocationUncheckedUpdateWithoutParentInput>
-  }
-
-  export type LocationUpdateManyWithWhereWithoutParentInput = {
-    where: LocationScalarWhereInput
-    data: XOR<LocationUpdateManyMutationInput, LocationUncheckedUpdateManyWithoutParentInput>
-  }
-
-  export type LocationScalarWhereInput = {
-    AND?: LocationScalarWhereInput | LocationScalarWhereInput[]
-    OR?: LocationScalarWhereInput[]
-    NOT?: LocationScalarWhereInput | LocationScalarWhereInput[]
-    id?: StringFilter<"Location"> | string
-    name?: StringFilter<"Location"> | string
-    slug?: StringFilter<"Location"> | string
-    type?: EnumLocationTypeFilter<"Location"> | $Enums.LocationType
-    description?: StringNullableFilter<"Location"> | string | null
-    parentId?: StringNullableFilter<"Location"> | string | null
-    address?: StringFilter<"Location"> | string
-  }
-
-  export type BannerImageUpsertWithWhereUniqueWithoutLocationInput = {
-    where: BannerImageWhereUniqueInput
-    update: XOR<BannerImageUpdateWithoutLocationInput, BannerImageUncheckedUpdateWithoutLocationInput>
-    create: XOR<BannerImageCreateWithoutLocationInput, BannerImageUncheckedCreateWithoutLocationInput>
-  }
-
-  export type BannerImageUpdateWithWhereUniqueWithoutLocationInput = {
-    where: BannerImageWhereUniqueInput
-    data: XOR<BannerImageUpdateWithoutLocationInput, BannerImageUncheckedUpdateWithoutLocationInput>
-  }
-
-  export type BannerImageUpdateManyWithWhereWithoutLocationInput = {
-    where: BannerImageScalarWhereInput
-    data: XOR<BannerImageUpdateManyMutationInput, BannerImageUncheckedUpdateManyWithoutLocationInput>
-  }
-
-  export type BannerImageScalarWhereInput = {
-    AND?: BannerImageScalarWhereInput | BannerImageScalarWhereInput[]
-    OR?: BannerImageScalarWhereInput[]
-    NOT?: BannerImageScalarWhereInput | BannerImageScalarWhereInput[]
-    id?: StringFilter<"BannerImage"> | string
-    url?: StringFilter<"BannerImage"> | string
-    locationId?: StringFilter<"BannerImage"> | string
-  }
-
-  export type LocationCreateManyParentInput = {
-    id?: string
-    name: string
-    slug: string
-    type: $Enums.LocationType
-    description?: string | null
-    address: string
-  }
-
-  export type BannerImageCreateManyLocationInput = {
-    id?: string
-    url: string
-  }
-
-  export type LocationUpdateWithoutParentInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    type?: EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: StringFieldUpdateOperationsInput | string
-    children?: LocationUpdateManyWithoutParentNestedInput
-    BannerImages?: BannerImageUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateWithoutParentInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    type?: EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: StringFieldUpdateOperationsInput | string
-    children?: LocationUncheckedUpdateManyWithoutParentNestedInput
-    BannerImages?: BannerImageUncheckedUpdateManyWithoutLocationNestedInput
-  }
-
-  export type LocationUncheckedUpdateManyWithoutParentInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    slug?: StringFieldUpdateOperationsInput | string
-    type?: EnumLocationTypeFieldUpdateOperationsInput | $Enums.LocationType
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type BannerImageUpdateWithoutLocationInput = {
-    url?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type BannerImageUncheckedUpdateWithoutLocationInput = {
-    url?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type BannerImageUncheckedUpdateManyWithoutLocationInput = {
-    url?: StringFieldUpdateOperationsInput | string
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
 
