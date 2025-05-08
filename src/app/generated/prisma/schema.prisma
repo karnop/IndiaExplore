@@ -39,3 +39,24 @@ model DailyMessageCount {
 
   @@unique([userId, date])
 }
+
+model Order {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String    @db.ObjectId
+  advocateID    String?   @db.ObjectId
+  advocateName  String?   @default("")
+  name          String
+  caseType      String
+  grievance     String?
+  city          String
+  language      String
+  callmode      String
+  callduration  Int
+  date          DateTime?
+  time          String
+  phone         String
+  totalCost     Int
+  transactionId String
+  paymentStatus Boolean?  @default(false)
+  createdAt     DateTime  @default(now())
+}

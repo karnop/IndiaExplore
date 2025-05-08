@@ -131,6 +131,27 @@ exports.Prisma.DailyMessageCountScalarFieldEnum = {
   count: 'count'
 };
 
+exports.Prisma.OrderScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  advocateID: 'advocateID',
+  advocateName: 'advocateName',
+  name: 'name',
+  caseType: 'caseType',
+  grievance: 'grievance',
+  city: 'city',
+  language: 'language',
+  callmode: 'callmode',
+  callduration: 'callduration',
+  date: 'date',
+  time: 'time',
+  phone: 'phone',
+  totalCost: 'totalCost',
+  transactionId: 'transactionId',
+  paymentStatus: 'paymentStatus',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -148,7 +169,8 @@ exports.UserType = exports.$Enums.UserType = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  DailyMessageCount: 'DailyMessageCount'
+  DailyMessageCount: 'DailyMessageCount',
+  Order: 'Order'
 };
 
 /**

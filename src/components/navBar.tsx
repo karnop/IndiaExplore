@@ -8,7 +8,7 @@ async function NavBar() {
     const session = await auth()
 
     return (
-        <div className={" flex justify-between items-center w-full md:max-w-4xl md:mx-auto py-4 px-4 gap-2"}>
+        <div className={" flex justify-between items-center w-full md:max-w-4xl md:mx-auto py-4 px-4 gap-2 "}>
             <Link href={"/"} className="font-bold text-2xl flex">
                 C <span className={"flex items-center w-5"}><ShipWheel/></span> onversi<span
                 className={"flex items-center w-5"}><Tent/></span>
