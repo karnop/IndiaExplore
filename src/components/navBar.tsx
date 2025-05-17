@@ -29,16 +29,12 @@ async function NavBar() {
                         In</Button>
                 </form>}
 
-                {session && <form
-                    action={async () => {
-                        "use server"
-                        await signOut()
-                    }}
-                >
-                    <Button type={"submit"}
-                            className=" bg-slate-900 text-white rounded-lg py-2  cursor-pointer hover:opacity-85">Sign
-                        Out</Button>
-                </form>}
+                {session &&
+                    <Button
+                            className=" bg-black text-white rounded-lg py-2 hover:opacity-80 cursor-pointer px-4">
+                        <Link href={"/profile"}>Profile</Link>
+                    </Button>
+                    }
 
             </div>
         </div>

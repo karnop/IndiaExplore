@@ -149,6 +149,7 @@ exports.Prisma.OrderScalarFieldEnum = {
   totalCost: 'totalCost',
   transactionId: 'transactionId',
   paymentStatus: 'paymentStatus',
+  advocateAssigned: 'advocateAssigned',
   createdAt: 'createdAt'
 };
 

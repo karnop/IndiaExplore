@@ -2983,6 +2983,7 @@ export namespace Prisma {
     totalCost: number | null
     transactionId: string | null
     paymentStatus: boolean | null
+    advocateAssigned: boolean | null
     createdAt: Date | null
   }
 
@@ -3004,6 +3005,7 @@ export namespace Prisma {
     totalCost: number | null
     transactionId: string | null
     paymentStatus: boolean | null
+    advocateAssigned: boolean | null
     createdAt: Date | null
   }
 
@@ -3025,6 +3027,7 @@ export namespace Prisma {
     totalCost: number
     transactionId: number
     paymentStatus: number
+    advocateAssigned: number
     createdAt: number
     _all: number
   }
@@ -3058,6 +3061,7 @@ export namespace Prisma {
     totalCost?: true
     transactionId?: true
     paymentStatus?: true
+    advocateAssigned?: true
     createdAt?: true
   }
 
@@ -3079,6 +3083,7 @@ export namespace Prisma {
     totalCost?: true
     transactionId?: true
     paymentStatus?: true
+    advocateAssigned?: true
     createdAt?: true
   }
 
@@ -3100,6 +3105,7 @@ export namespace Prisma {
     totalCost?: true
     transactionId?: true
     paymentStatus?: true
+    advocateAssigned?: true
     createdAt?: true
     _all?: true
   }
@@ -3208,6 +3214,7 @@ export namespace Prisma {
     totalCost: number
     transactionId: string
     paymentStatus: boolean | null
+    advocateAssigned: boolean | null
     createdAt: Date
     _count: OrderCountAggregateOutputType | null
     _avg: OrderAvgAggregateOutputType | null
@@ -3248,6 +3255,7 @@ export namespace Prisma {
     totalCost?: boolean
     transactionId?: boolean
     paymentStatus?: boolean
+    advocateAssigned?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["order"]>
 
@@ -3271,10 +3279,11 @@ export namespace Prisma {
     totalCost?: boolean
     transactionId?: boolean
     paymentStatus?: boolean
+    advocateAssigned?: boolean
     createdAt?: boolean
   }
 
-  export type OrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "advocateID" | "advocateName" | "name" | "caseType" | "grievance" | "city" | "language" | "callmode" | "callduration" | "date" | "time" | "phone" | "totalCost" | "transactionId" | "paymentStatus" | "createdAt", ExtArgs["result"]["order"]>
+  export type OrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "advocateID" | "advocateName" | "name" | "caseType" | "grievance" | "city" | "language" | "callmode" | "callduration" | "date" | "time" | "phone" | "totalCost" | "transactionId" | "paymentStatus" | "advocateAssigned" | "createdAt", ExtArgs["result"]["order"]>
 
   export type $OrderPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Order"
@@ -3297,6 +3306,7 @@ export namespace Prisma {
       totalCost: number
       transactionId: string
       paymentStatus: boolean | null
+      advocateAssigned: boolean | null
       createdAt: Date
     }, ExtArgs["result"]["order"]>
     composites: {}
@@ -3707,6 +3717,7 @@ export namespace Prisma {
     readonly totalCost: FieldRef<"Order", 'Int'>
     readonly transactionId: FieldRef<"Order", 'String'>
     readonly paymentStatus: FieldRef<"Order", 'Boolean'>
+    readonly advocateAssigned: FieldRef<"Order", 'Boolean'>
     readonly createdAt: FieldRef<"Order", 'DateTime'>
   }
     
@@ -4102,6 +4113,7 @@ export namespace Prisma {
     totalCost: 'totalCost',
     transactionId: 'transactionId',
     paymentStatus: 'paymentStatus',
+    advocateAssigned: 'advocateAssigned',
     createdAt: 'createdAt'
   };
 
@@ -4347,6 +4359,7 @@ export namespace Prisma {
     totalCost?: IntFilter<"Order"> | number
     transactionId?: StringFilter<"Order"> | string
     paymentStatus?: BoolNullableFilter<"Order"> | boolean | null
+    advocateAssigned?: BoolNullableFilter<"Order"> | boolean | null
     createdAt?: DateTimeFilter<"Order"> | Date | string
   }
 
@@ -4368,6 +4381,7 @@ export namespace Prisma {
     totalCost?: SortOrder
     transactionId?: SortOrder
     paymentStatus?: SortOrder
+    advocateAssigned?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -4392,6 +4406,7 @@ export namespace Prisma {
     totalCost?: IntFilter<"Order"> | number
     transactionId?: StringFilter<"Order"> | string
     paymentStatus?: BoolNullableFilter<"Order"> | boolean | null
+    advocateAssigned?: BoolNullableFilter<"Order"> | boolean | null
     createdAt?: DateTimeFilter<"Order"> | Date | string
   }, "id">
 
@@ -4413,6 +4428,7 @@ export namespace Prisma {
     totalCost?: SortOrder
     transactionId?: SortOrder
     paymentStatus?: SortOrder
+    advocateAssigned?: SortOrder
     createdAt?: SortOrder
     _count?: OrderCountOrderByAggregateInput
     _avg?: OrderAvgOrderByAggregateInput
@@ -4442,6 +4458,7 @@ export namespace Prisma {
     totalCost?: IntWithAggregatesFilter<"Order"> | number
     transactionId?: StringWithAggregatesFilter<"Order"> | string
     paymentStatus?: BoolNullableWithAggregatesFilter<"Order"> | boolean | null
+    advocateAssigned?: BoolNullableWithAggregatesFilter<"Order"> | boolean | null
     createdAt?: DateTimeWithAggregatesFilter<"Order"> | Date | string
   }
 
@@ -4581,6 +4598,7 @@ export namespace Prisma {
     totalCost: number
     transactionId: string
     paymentStatus?: boolean | null
+    advocateAssigned?: boolean | null
     createdAt?: Date | string
   }
 
@@ -4602,6 +4620,7 @@ export namespace Prisma {
     totalCost: number
     transactionId: string
     paymentStatus?: boolean | null
+    advocateAssigned?: boolean | null
     createdAt?: Date | string
   }
 
@@ -4622,6 +4641,7 @@ export namespace Prisma {
     totalCost?: IntFieldUpdateOperationsInput | number
     transactionId?: StringFieldUpdateOperationsInput | string
     paymentStatus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    advocateAssigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4642,6 +4662,7 @@ export namespace Prisma {
     totalCost?: IntFieldUpdateOperationsInput | number
     transactionId?: StringFieldUpdateOperationsInput | string
     paymentStatus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    advocateAssigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4663,6 +4684,7 @@ export namespace Prisma {
     totalCost: number
     transactionId: string
     paymentStatus?: boolean | null
+    advocateAssigned?: boolean | null
     createdAt?: Date | string
   }
 
@@ -4683,6 +4705,7 @@ export namespace Prisma {
     totalCost?: IntFieldUpdateOperationsInput | number
     transactionId?: StringFieldUpdateOperationsInput | string
     paymentStatus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    advocateAssigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4703,6 +4726,7 @@ export namespace Prisma {
     totalCost?: IntFieldUpdateOperationsInput | number
     transactionId?: StringFieldUpdateOperationsInput | string
     paymentStatus?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    advocateAssigned?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4955,6 +4979,7 @@ export namespace Prisma {
     totalCost?: SortOrder
     transactionId?: SortOrder
     paymentStatus?: SortOrder
+    advocateAssigned?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -4981,6 +5006,7 @@ export namespace Prisma {
     totalCost?: SortOrder
     transactionId?: SortOrder
     paymentStatus?: SortOrder
+    advocateAssigned?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -5002,6 +5028,7 @@ export namespace Prisma {
     totalCost?: SortOrder
     transactionId?: SortOrder
     paymentStatus?: SortOrder
+    advocateAssigned?: SortOrder
     createdAt?: SortOrder
   }
 
