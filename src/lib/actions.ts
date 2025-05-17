@@ -111,7 +111,8 @@ export async function advocateAcceptAppointment(args: {
     orderId: string;
     advocateId: string;
     advocateName: string;
-}): Promise<AcceptResult> {
+}): Promise<AcceptResult>
+{
     const { orderId, advocateId, advocateName } = args;
 
     // 1️⃣ count how many future appointments this advocate already has
@@ -142,4 +143,13 @@ export async function advocateAcceptAppointment(args: {
     });
 
     return { success: true };
+}
+
+
+export async function getOrder(orderId : string) {
+    const order = await prisma.order.findUnique({
+        where : {id : orderId },
+    });
+
+    return order;
 }

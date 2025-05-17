@@ -5,6 +5,7 @@ import {Button} from "@heroui/button";
 import {getPastOrders, getUpcomingOrders} from '@/lib/actions';
 import {Divider} from "@heroui/react";
 import { signOut } from "next-auth/react"
+import Link from "next/link";
 export interface ClientProfileProps {
     user: User
 }
@@ -118,8 +119,9 @@ function Clientprofile({user}: ClientProfileProps) {
                                 </div>
                                 <Divider className={"text-slate-100 h-1"}/>
 
-                                <Button className={"bg-black text-white w-full px-1 py-2 rounded-md cursor-pointer"}>Join meeting</Button>
-
+                                <Button className={"bg-black text-white w-full px-1 py-2 rounded-md cursor-pointer"}>
+                                    <Link href={`/meet/${order.id}`}>Join meeting </Link>
+                                </Button>
                             </div>
                         )}
 

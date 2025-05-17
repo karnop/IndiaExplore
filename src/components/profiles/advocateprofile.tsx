@@ -6,6 +6,7 @@ import {Button} from "@heroui/button";
 import {signOut} from "next-auth/react";
 import {Divider} from "@heroui/react";
 import {getOrdersAdvocate, getOrdersAdvocate2, advocateAcceptAppointment} from "@/lib/actions";
+import Link from "next/link";
 
 export interface AdvocateProfileProps {
     user: User
@@ -137,7 +138,9 @@ function Advocateprofile({user}: AdvocateProfileProps) {
                             </div>
                             <Divider className={"text-slate-100 h-1"}/>
 
-                            <Button className={"bg-black text-white w-full px-1 py-2 rounded-md cursor-pointer"}>Join meeting</Button>
+                            <Button className={"bg-black text-white w-full px-1 py-2 rounded-md cursor-pointer"}>
+                                <Link href={`/meet/${order.id}`}>Join meeting </Link>
+                            </Button>
 
                         </div>
                     )}

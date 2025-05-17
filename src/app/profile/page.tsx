@@ -1,9 +1,9 @@
 import {auth} from "@/auth";
 import {redirect} from "next/navigation";
 import prisma from "@/lib/prisma";
-import Clientprofile from "@/components/clientprofile";
-import Advocateprofile from "@/components/advocateprofile";
-import Adminprofile from "@/components/adminprofile";
+import Clientprofile from "@/components/profiles/clientprofile";
+import Advocateprofile from "@/components/profiles/advocateprofile";
+import Adminprofile from "@/components/profiles/adminprofile";
 
 async function Page() {
     const session = await auth();
