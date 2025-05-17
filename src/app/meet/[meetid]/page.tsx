@@ -177,12 +177,7 @@ export default function Page({ params }: PageProps) {
 
                 {remainingMs === 0 && !errorMsg && (
                     <div className="text-center">
-                        <button
-                            onClick={() => router.push(`/meet/${meetid}/join`)}
-                            className="mt-2 rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
-                        >
-                            Join Meeting
-                        </button>
+                        <Call appId={process.env.PUBLIC_AGORA_APP_ID!} channelName={params.channelName}></Call>
                     </div>
                 )}
             </div>
